@@ -3,4 +3,3 @@ D:\dev\otus_algo_2020-01\Tester\Tester\bin\Debug\Tester.exe
 D:\dev\otus_algo_2020-01\Tester\Tester\bin\Debug\Tester.pdb
 D:\dev\otus_algo_2020-01\Tester\Tester\obj\Debug\Tester.exe
 D:\dev\otus_algo_2020-01\Tester\Tester\obj\Debug\Tester.pdb
-D:\dev\otus_algo_2020-01\Tester\Tester\obj\Debug\Tester.csprojAssemblyReference.cache
