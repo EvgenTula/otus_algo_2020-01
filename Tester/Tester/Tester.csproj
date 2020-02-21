@@ -42,8 +42,5 @@
     <Compile Include="Task\simple\StringLength\StringLength.cs" />
     <Compile Include="Tester.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include=".gitignore" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
