@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tester
+namespace SimpleTester
 {
     public class Tester
     {
@@ -17,18 +18,25 @@ namespace Tester
             this._path = path;
         }
 
-        public void RunTests()
+        public void RunTests(String testName)
         {
             int num = 0;
-            while(true)
+            Stopwatch sw = new Stopwatch();
+            Console.WriteLine($"==={testName}===");
+            while (true)
             {
+                
                 string test = $"{this._path}\\test.{num}.in";
                 string result = $"{this._path}\\test.{num}.out";
                 if (!File.Exists(test) || !File.Exists(result))
                     break;
-                Console.WriteLine($"Test #{num} - " + RunTest(test, result));
+                sw.Restart();
+                bool resultTest = RunTest(test, result);
+                sw.Stop();
+                Console.WriteLine($"Test #{num}\t {resultTest}\t time: {sw.ElapsedMilliseconds}");
                 num++;
             }
+            Console.WriteLine($"\n");
         }
 
         private bool RunTest(string test, string result)

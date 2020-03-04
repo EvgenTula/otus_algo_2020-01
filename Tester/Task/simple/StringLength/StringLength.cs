@@ -1,4 +1,4 @@
-﻿namespace Tester
+﻿namespace SimpleTester
 {
     class StringLength : ITask
     {

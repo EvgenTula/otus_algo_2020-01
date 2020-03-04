@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tester
+namespace SimpleTester
 {
     class LuckyTickets : ITask
     {
