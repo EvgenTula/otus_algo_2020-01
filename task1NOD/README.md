@@ -13,7 +13,7 @@
 </table>
 
 <table border="1">
-<caption>Через вычитание</caption>
+<caption>Через вычитание (NODSubtract)</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
 <tr><th>Test #0</th><th>8</th></tr>
 <tr><th>Test #1</th><th>65</th></tr>
@@ -22,7 +22,7 @@
 <tr><th>Test #4</th><th>0</th></tr>
 </table>
 <table border="1">
-<caption>Через остаток</caption>
+<caption>Через остаток (NODDiv)</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
 <tr><th>Test #0</th><th>1</th></tr>
 <tr><th>Test #1</th><th>0</th></tr>
@@ -31,7 +31,7 @@
 <tr><th>Test #4</th><th>0</th></tr>
 </table>
 <table border="1">
-<caption>Через битовые операции</caption>
+<caption>Через битовые операции (NODShift)</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
 <tr><th>Test #0</th><th>1</th></tr>
 <tr><th>Test #1</th><th>0</th></tr>
