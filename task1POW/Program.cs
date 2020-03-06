@@ -13,16 +13,15 @@ namespace task1POW
             
             ITask task1 = new POWFullMultiplication();
             Tester tester1 = new Tester(task1, currentDir);
-            tester1.RunTests("Итеративный (n умножений)");
-            
+            tester1.RunTests("Итеративный -- n умножений (POWFullMultiplication)");
+                                   
             ITask task2 = new POWPartialMultiplication();
             Tester tester2 = new Tester(task2, currentDir);
-            tester2.RunTests("Через степень двойки с домножением");
-
-            
+            tester2.RunTests("Через степень двойки с домножением (POWPartialMultiplication)");
+                        
             ITask task3 = new POWDecomposition();
             Tester tester3 = new Tester(task3, currentDir);
-            tester3.RunTests("Через двоичное разложение показателя степени");
+            tester3.RunTests("Через двоичное разложение показателя степени (POWDecomposition)");
             
 
             Console.ReadKey();

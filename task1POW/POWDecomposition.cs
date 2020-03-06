@@ -1,4 +1,5 @@
 ﻿using SimpleTester;
+using System;
 
 namespace task1POW
 {
@@ -12,16 +13,17 @@ namespace task1POW
         private long Calc(long num, long pow)
         {
             long result = 1;
-            while(pow > 1)
+            while (pow > 1)
             {
                 if (pow % 2 == 1)
-                {
-                    result*=num;
-                }
+                    result *= num;
                 num *= num;
                 pow /= 2;
             }
-            if (pow > 0) result *= num;
+            
+            if (pow > 0)
+                result *= num;
+
             return result;
         }
     }
