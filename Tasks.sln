@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1NOD", "task1NOD\task1N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task1POW", "task1POW\task1POW.csproj", "{2787D776-56EA-4C4D-AA9F-8EE8E71425CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tast1CountSimpleNum", "tast1CountSimpleNum\tast1CountSimpleNum.csproj", "{0DFD6C95-66E7-4816-8445-4D1CE87A7CEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tast1Prime", "tast1CountSimpleNum\tast1Prime.csproj", "{0DFD6C95-66E7-4816-8445-4D1CE87A7CEA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task1Fibonacci", "task1Fibonacci\task1Fibonacci.csproj", "{9795CF71-AF58-4130-8A09-61CEC39E6A81}"
 EndProject

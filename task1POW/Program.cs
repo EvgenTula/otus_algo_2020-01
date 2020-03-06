@@ -10,23 +10,19 @@ namespace task1POW
         {
             Directory.SetCurrentDirectory("..\\..\\..\\Test");
             String currentDir = Directory.GetCurrentDirectory();
-            /*
+            
             Task task1 = new POWFullMultiplication();
             Tester tester1 = new Tester(task1, currentDir);
             tester1.RunTests("Итеративный -- n умножений (POWFullMultiplication)");
-            */
-              
-            /*
+                                     
             Task task2 = new POWPartialMultiplication();
             Tester tester2 = new Tester(task2, currentDir);
             tester2.RunTests("Через степень двойки с домножением (POWPartialMultiplication)");
-            */
                        
             Task task3 = new POWDecomposition();
             Tester tester3 = new Tester(task3, currentDir);
             tester3.RunTests("Через двоичное разложение показателя степени (POWDecomposition)");
             
-
             Console.ReadKey();
         }
     }
