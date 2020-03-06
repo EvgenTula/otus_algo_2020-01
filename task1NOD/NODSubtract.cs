@@ -6,10 +6,10 @@ namespace task1NOD
     {
         public string Run(string[] data)
         {
-            return Subtract(int.Parse(data[0]), int.Parse(data[1])).ToString();
+            return Calc(int.Parse(data[0]), int.Parse(data[1])).ToString();
         }
 
-        private int Subtract(int a, int b)
+        private int Calc(int a, int b)
         {
             while (a != b)
             {

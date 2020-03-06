@@ -6,10 +6,10 @@ namespace task1NOD
     {
         public string Run(string[] data)
         {
-            return Shift(int.Parse(data[0]), int.Parse(data[1])).ToString();
+            return Calc(int.Parse(data[0]), int.Parse(data[1])).ToString();
         }
 
-        private int Shift(int a, int b)
+        private int Calc(int a, int b)
         {
             if (a == 0)
                 return b;
@@ -22,26 +22,26 @@ namespace task1NOD
 
             if ((a & 1) == 0 && (b & 1) == 0)
             {
-                return 2 * Shift(a >> 1, b >> 1);
+                return 2 * Calc(a >> 1, b >> 1);
             }
 
             if ((a & 1) == 0 && (b & 1) != 0)
             {
-                return Shift(a >> 1, b);
+                return Calc(a >> 1, b);
             }
 
             if ((a & 1) != 0 && (b & 1) == 0)
             {
-                return Shift(a, b >> 1);
+                return Calc(a, b >> 1);
             }
 
             if (a < b)
             {
-                return Shift((b - a) >> 1, a);
+                return Calc((b - a) >> 1, a);
             }
             else
             {
-                return Shift((a - b) >> 1, b);
+                return Calc((a - b) >> 1, b);
             }
         }
 

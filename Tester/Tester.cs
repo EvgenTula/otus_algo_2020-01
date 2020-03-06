@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleTester
 {
@@ -21,8 +17,14 @@ namespace SimpleTester
         public void RunTests(String testName)
         {
             int num = 0;
-            Stopwatch sw = new Stopwatch();
+            
             Console.WriteLine($"==={testName}===");
+            if (File.Exists("D:\\1.txt"))
+                File.Delete("D:\\1.txt");
+            File.AppendAllText("D:\\1.txt", $"<table border=\"1\">\n");
+            File.AppendAllText("D:\\1.txt", $"<caption>{testName}</caption>\n");
+            File.AppendAllText("D:\\1.txt", $"<tr><th>Test</th><th>Time (ms)</th></tr>\n");
+
             while (true)
             {
                 
@@ -30,13 +32,16 @@ namespace SimpleTester
                 string result = $"{this._path}\\test.{num}.out";
                 if (!File.Exists(test) || !File.Exists(result))
                     break;
-                sw.Restart();
+                Stopwatch sw = Stopwatch.StartNew();
                 bool resultTest = RunTest(test, result);
                 sw.Stop();
+                
+                File.AppendAllText("D:\\1.txt", $"<tr><th>Test #{num}</th><th>{sw.ElapsedMilliseconds}</th></tr>\n");
                 Console.WriteLine($"Test #{num}\t {resultTest}\t time: {sw.ElapsedMilliseconds}");
                 num++;
             }
             Console.WriteLine($"\n");
+            File.AppendAllText("D:\\1.txt", $"</table>\n");
         }
 
         private bool RunTest(string test, string result)
