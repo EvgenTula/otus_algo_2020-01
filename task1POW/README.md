@@ -15,30 +15,32 @@
 <table border="1">
 <caption>Итеративный -- n умножений (POWFullMultiplication)</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
-<tr><th>Test #0</th><th>20</th></tr>
-<tr><th>Test #1</th><th>0</th></tr>
-<tr><th>Test #2</th><th>0</th></tr>
-<tr><th>Test #3</th><th>0</th></tr>
-<tr><th>Test #4</th><th>0</th></tr>
+<tr><th>Test #0</th><th>93</th></tr>
+<tr><th>Test #1</th><th>214</th></tr>
+<tr><th>Test #2</th><th>2225</th></tr>
+<tr><th>Test #3</th><th>21198</th></tr>
+<tr><th>Test #4</th><th>221436</th></tr>
 </table>
 
 <table border="1">
 <caption>Через степень двойки с домножением (POWPartialMultiplication)</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
-<tr><th>Test #0</th><th>8</th></tr>
+<tr><th>Test #0</th><th>16</th></tr>
+<tr><th>Test #1</th><th>85</th></tr>
+<tr><th>Test #2</th><th>298</th></tr>
+<tr><th>Test #3</th><th>6138</th></tr>
+<tr><th>Test #4</th><th>118098</th></tr>
+</table>
+
+
+<table border="1">
+<caption>Через двоичное разложение показателя степени (POWDecomposition)</caption>
+<tr><th>Test</th><th>Time (ms)</th></tr>
+<tr><th>Test #0</th><th>10</th></tr>
 <tr><th>Test #1</th><th>0</th></tr>
 <tr><th>Test #2</th><th>0</th></tr>
 <tr><th>Test #3</th><th>0</th></tr>
 <tr><th>Test #4</th><th>0</th></tr>
 </table>
 
-<table border="1">
-<caption>Через двоичное разложение показателя степени (POWDecomposition)</caption>
-<tr><th>Test</th><th>Time (ms)</th></tr>
-<tr><th>Test #0</th><th>18</th></tr>
-<tr><th>Test #1</th><th>0</th></tr>
-<tr><th>Test #2</th><th>0</th></tr>
-<tr><th>Test #3</th><th>0</th></tr>
-<tr><th>Test #4</th><th>0</th></tr>
-</table>
 
