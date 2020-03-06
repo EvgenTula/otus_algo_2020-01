@@ -6,9 +6,9 @@ namespace SimpleTester
 {
     public class Tester
     {
-        private ITask _task;
+        private Task _task;
         private string _path;
-        public Tester(ITask task, string path)
+        public Tester(Task task, string path)
         {
             this._task = task;
             this._path = path;
@@ -49,7 +49,7 @@ namespace SimpleTester
             try
             {
                 string[] data = File.ReadAllLines(test);
-                string expect = File.ReadAllText(result).Trim();
+                string expect = this._task.ParseExpect(File.ReadAllText(result).Trim());
                 string actual = this._task.Run(data);
                 return actual == expect;
             }

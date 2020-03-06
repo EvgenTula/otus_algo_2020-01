@@ -2,9 +2,9 @@
 
 namespace task1NOD
 {
-    class NODDiv : ITask
+    class NODDiv : Task
     {
-        public string Run(string[] data)
+        public override string Run(string[] data)
         {
             return Calc(int.Parse(data[0]), int.Parse(data[1])).ToString();
         }

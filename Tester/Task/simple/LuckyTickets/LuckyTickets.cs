@@ -2,12 +2,12 @@
 
 namespace SimpleTester
 {
-    class LuckyTickets : ITask
+    class LuckyTickets : Task
     {
         int n;
         int qty;
 
-        public string Run(string[] data)
+        public override string Run(string[] data)
         {
             n = Convert.ToInt32(data[0]);
             qty = 0;

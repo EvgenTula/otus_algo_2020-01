@@ -1,8 +1,8 @@
 ﻿namespace SimpleTester
 {
-    class StringLength : ITask
+    class StringLength : Task
     {
-        public string Run(string[] data)
+        public override string Run(string[] data)
         {
             return data[0].Length.ToString();
         }

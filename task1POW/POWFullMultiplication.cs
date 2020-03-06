@@ -1,23 +1,27 @@
 ﻿using SimpleTester;
-using System;
 
 namespace task1POW
 {
-    class POWFullMultiplication : ITask
+    class POWFullMultiplication : Task
     {
-        public string Run(string[] data)
+        public override string Run(string[] data)
         {
-            return Calc(long.Parse(data[0]), long.Parse(data[1])).ToString();
+            return decimal.ToDouble(Calc(decimal.Parse(data[0]), decimal.Parse(data[1]))).ToString();
         }
 
-        private long Calc(long num, long pow)
+        private decimal Calc(decimal num, decimal pow)
         {
-            long result = 1;
-            for(long i = 0; i < pow; i++)
+            decimal result = 1;
+            for(decimal i = 0; i < pow; i++)
             {
                 result *= num;
             }
             return result;
+        }
+
+        public override string ParseExpect(string data)
+        {
+            return decimal.ToDouble(decimal.Parse(data)).ToString();
         }
     }
 }

@@ -5,11 +5,11 @@
 <th>Num</th>
 <th>Pow</th>   
 </tr>
-<tr><td>Test #0</td><td>2</td><td>8</td></tr>
-<tr><td>Test #1</td><td>35</td><td>5</td></tr>
-<tr><td>Test #2</td><td>10</td><td>5</td></tr>
-<tr><td>Test #3</td><td>256</td><td>2</td></tr>
-<tr><td>Test #4</td><td>2</td><td>20</td></tr>   
+<tr><td>Test #0</td><td>1,000000001</td><td>100000</td></tr>
+<tr><td>Test #1</td><td>1,000000001</td><td>1000000</td></tr>
+<tr><td>Test #2</td><td>1,000000001</td><td>10000000</td></tr>
+<tr><td>Test #3</td><td>1,000000001</td><td>100000000</td></tr>
+<tr><td>Test #4</td><td>1,000000001</td><td>1000000000</td></tr>   
 </table>
 
 <table border="1">
