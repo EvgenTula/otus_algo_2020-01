@@ -10,21 +10,6 @@ namespace tast1Prime
         public override string Run(string[] data)
         {
             return Calc(long.Parse(data[0])).ToString();
-
-            //int num = int.Parse(data[0]);
-            /*
-            int cnt = 0;
-            for (int i = 0; i <= 1000; i++)
-            {
-                if (Calc(i))
-                {
-                    cnt++;
-                }
-            }
-
-            Console.WriteLine(cnt);
-            return cnt.ToString();
-            */
         }
 
         private bool Calc(long num)
