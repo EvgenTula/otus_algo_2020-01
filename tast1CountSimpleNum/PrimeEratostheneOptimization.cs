@@ -7,27 +7,29 @@ namespace tast1Prime
     {
         public override string Run(string[] data)
         {
-            List<int> primes = new List<int>();
             int num = int.Parse(data[0]);
+            List<int> primes = new List<int>(num);
             for (int i = 2; i <= num; i++)
             {
-                if (Calc(i))
-                {
-                    primes.Add(i);
-                }
+                primes.Add(i);
             }
-            return primes.Count.ToString();
-        }
+   
+            int curret_num = 2;
+            int index = primes.IndexOf(curret_num);
 
-        private bool Calc(long num)
-        {
-            int count = 0;
-            for (int i = 1; i <= num; i++)
+            while (curret_num * curret_num <= num)
             {
-                if (num % i == 0)
-                    count++;
-            }
-            return count == 2;
-        }
+                int step = 2;
+                
+                for (int i = curret_num * curret_num; i <= num; i = curret_num * step)
+                {
+                    primes.Remove(i);
+                    step++;
+                }
+                index++;
+                curret_num = primes[index];
+            }    
+            return primes.Count.ToString();
+        }  
     }
 }
