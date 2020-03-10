@@ -1,15 +1,22 @@
 ﻿using SimpleTester;
-using System;
+using System.Collections.Generic;
 
 namespace tast1Prime
 {
     class PrimeSimpeSearch : Task
     {
-        public object Conole { get; private set; }
-
         public override string Run(string[] data)
         {
-            return Calc(long.Parse(data[0])).ToString();
+            List<int> primes = new List<int>();
+            int num = int.Parse(data[0]);
+            for (int i = 2; i <= num; i++)
+            {
+                if (Calc(i))
+                {
+                    primes.Add(i);
+                }
+            }
+            return primes.Count.ToString();
         }
 
         private bool Calc(long num)
