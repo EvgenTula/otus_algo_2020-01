@@ -3,15 +3,13 @@ using System.Collections.Generic;
 
 namespace tast1Prime
 {
-    class PrimeSimpeSearchOptimization : Task
+    class PrimeEratostheneOptimization : Task
     {
-        private List<int> primes;
-
         public override string Run(string[] data)
         {
+            List<int> primes = new List<int>();
             int num = int.Parse(data[0]);
-            primes = new List<int>();
-            for(int i = 2; i <= num; i++)
+            for (int i = 2; i <= num; i++)
             {
                 if (Calc(i))
                 {
@@ -21,16 +19,15 @@ namespace tast1Prime
             return primes.Count.ToString();
         }
 
-        private bool Calc(int num)
+        private bool Calc(long num)
         {
-            if (num == 2)
-                return true;
-            for (int i = 0; primes[i] * primes[i] <= num; i++)
+            int count = 0;
+            for (int i = 1; i <= num; i++)
             {
-                if (num % primes[i] == 0)
-                    return false;
+                if (num % i == 0)
+                    count++;
             }
-            return true;
+            return count == 2;
         }
     }
 }
