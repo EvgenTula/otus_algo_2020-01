@@ -6,7 +6,8 @@ namespace task1POW
     {
         public override string Run(string[] data)
         {
-            return decimal.ToDouble(Calc(decimal.Parse(data[0]), int.Parse(data[1]))).ToString();
+            //return decimal.ToDouble(Calc(decimal.Parse(data[0]), int.Parse(data[1]))).ToString();
+            return decimal.ToDouble(Calc(2, 9)).ToString();
         }
 
         private decimal Calc(decimal num, int pow)

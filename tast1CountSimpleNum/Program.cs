@@ -29,11 +29,13 @@ namespace tast1Prime
             Task task4 = new PrimeEratostheneOptimization();
             Tester tester4 = new Tester(task4, currentDir);
             tester4.RunTests("Решето Эратосфена с оптимизацией памяти: битовая матрица, по 32 значения в одном int (PrimeEratostheneOptimization)");
+
             /*
             Task task5 = new PrimeEratostheneN();
             Tester tester5 = new Tester(task5, currentDir);
             tester5.RunTests("Решето Эратосфена со сложностью O(n) (PrimeEratostheneN)");
             */
+
             Console.ReadKey();
         }
     }
