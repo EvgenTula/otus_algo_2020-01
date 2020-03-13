@@ -67,31 +67,13 @@ namespace task1Fibonacci
             if (pow > 0)
                 result = result * matrix2D;
             
-            //Matrix2d.print(result);
             return result;       
         }
 
         public int firstItem()
         {
             return this.arr[0, 0];
-        }
-
-        /*
-        public static void print(Matrix2d matrix2D)
-        {
-            for (int i = 0; i < matrix2D.arr.GetLength(0); i++)
-            {
-                
-                for (int j = 0; j < matrix2D.arr.GetLength(1); j++)
-                {
-                    Console.Write(matrix2D.arr[i, j] + " ");
-                }
-                Console.Write("\n");
-            }
-
-            Console.Write("\n");
-        }
-        */
+        }      
     }
 
 }
