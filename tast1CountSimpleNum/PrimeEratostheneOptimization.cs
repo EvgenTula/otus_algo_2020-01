@@ -8,28 +8,29 @@ namespace tast1Prime
         public override string Run(string[] data)
         {
             int num = int.Parse(data[0]);
-            List<int> primes = new List<int>(num);
-            for (int i = 2; i <= num; i++)
-            {
-                primes.Add(i);
-            }
-   
-            int curret_num = 2;
-            int index = primes.IndexOf(curret_num);
+            byte[] primes = new byte[num];
+            int current_item = 2;
 
-            while (curret_num * curret_num <= num)
+            while (current_item * current_item < primes.Length)
             {
                 int step = 2;
-                
-                for (int i = curret_num * curret_num; i <= num; i = curret_num * step)
+
+                for (int i = current_item * current_item; i < primes.Length; i = current_item * step)
                 {
-                    primes.Remove(i);
+                    primes[i] = 1;
                     step++;
                 }
-                index++;
-                curret_num = primes[index];
-            }    
-            return primes.Count.ToString();
+                while (primes[++current_item] == 1) { };
+            }
+
+            int countPrimes = 0;
+            for (int i = 2; i < primes.Length; i++)
+            {
+                if (primes[i] == 0)
+                    countPrimes++;
+            }
+
+            return countPrimes.ToString();
         }  
     }
 }
