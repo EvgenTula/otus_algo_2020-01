@@ -11,6 +11,9 @@ namespace tast1Prime
             Directory.SetCurrentDirectory("..\\..\\..\\Test");
             String currentDir = Directory.GetCurrentDirectory();
 
+            if (File.Exists(currentDir + "\\Result.md"))
+                File.Delete(currentDir + "\\Result.md");
+
             Task task1 = new PrimeSimpeSearch();
             Tester tester1 = new Tester(task1, currentDir);
             tester1.RunTests("Через перебор делителей (PrimeSimpeSearch)");
