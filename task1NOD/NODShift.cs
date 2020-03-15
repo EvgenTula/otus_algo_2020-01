@@ -6,10 +6,10 @@ namespace task1NOD
     {
         public override string Run(string[] data)
         {
-            return Calc(int.Parse(data[0]), int.Parse(data[1])).ToString();
+            return Calc(long.Parse(data[0]), long.Parse(data[1])).ToString();
         }
 
-        private int Calc(int a, int b)
+        private long Calc(long a, long b)
         {
             if (a == 0)
                 return b;
@@ -19,7 +19,7 @@ namespace task1NOD
                 return a;
             if (a == 1 || b == 1)
                 return 1;
-
+           
             if ((a & 1) == 0 && (b & 1) == 0)
             {
                 return 2 * Calc(a >> 1, b >> 1);

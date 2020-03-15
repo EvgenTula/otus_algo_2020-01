@@ -6,10 +6,10 @@ namespace task1NOD
     {
         public override string Run(string[] data)
         {
-            return Calc(int.Parse(data[0]), int.Parse(data[1])).ToString();
+            return Calc(long.Parse(data[0]), long.Parse(data[1])).ToString();
         }
 
-        private int Calc(int a, int b)
+        private long Calc(long a, long b)
         {
             while (a != b)
             {

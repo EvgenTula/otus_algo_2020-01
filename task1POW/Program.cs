@@ -10,7 +10,10 @@ namespace task1POW
         {
             Directory.SetCurrentDirectory("..\\..\\..\\Test");
             String currentDir = Directory.GetCurrentDirectory();
-            
+
+            if (File.Exists(currentDir + "\\Result.txt"))
+                File.Delete(currentDir + "\\Result.txt");
+
             Task task1 = new POWFullMultiplication();
             Tester tester1 = new Tester(task1, currentDir);
             tester1.RunTests("Итеративный -- n умножений (POWFullMultiplication)");

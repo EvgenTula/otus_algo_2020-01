@@ -11,11 +11,14 @@ namespace Task1NOD
         {            
             Directory.SetCurrentDirectory("..\\..\\..\\Test");
             String currentDir = Directory.GetCurrentDirectory();
+
+            if (File.Exists(currentDir+"\\Result.txt"))
+                File.Delete(currentDir + "\\Result.txt");
             
             Task task1 = new NODSubtract();
             Tester tester1 = new Tester(task1, currentDir);
             tester1.RunTests("Через вычитание");
-            
+                    
             Task task2= new NODDiv();
             Tester tester2 = new Tester(task2, currentDir);
             tester2.RunTests("Через остаток");

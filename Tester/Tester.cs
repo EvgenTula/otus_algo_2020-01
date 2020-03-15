@@ -19,11 +19,10 @@ namespace SimpleTester
             int num = 0;
             
             Console.WriteLine($"==={testName}===");
-            if (File.Exists("D:\\1.txt"))
-                File.Delete("D:\\1.txt");
-            File.AppendAllText("D:\\1.txt", $"<table border=\"1\">\n");
-            File.AppendAllText("D:\\1.txt", $"<caption>{testName}</caption>\n");
-            File.AppendAllText("D:\\1.txt", $"<tr><th>Test</th><th>Time (ms)</th></tr>\n");
+
+            File.AppendAllText(this._path + "\\Result.txt", $"<table border=\"1\">\n");
+            File.AppendAllText(this._path + "\\Result.txt", $"<caption>{testName}</caption>\n");
+            File.AppendAllText(this._path + "\\Result.txt", $"<tr><th>Test</th><th>Time (ms)</th></tr>\n");
 
             while (true)
             {
@@ -36,12 +35,12 @@ namespace SimpleTester
                 bool resultTest = RunTest(test, result);
                 sw.Stop();
                 
-                File.AppendAllText("D:\\1.txt", $"<tr><th>Test #{num}</th><th>{sw.ElapsedMilliseconds}</th></tr>\n");
+                File.AppendAllText(this._path + "\\Result.txt", $"<tr><th>Test #{num}</th><th>{sw.ElapsedMilliseconds}</th></tr>\n");
                 Console.WriteLine($"Test #{num}\t {resultTest}\t time: {sw.ElapsedMilliseconds}");
                 num++;
             }
             Console.WriteLine($"\n");
-            File.AppendAllText("D:\\1.txt", $"</table>\n");
+            File.AppendAllText(this._path + "\\Result.txt", $"</table>\n");
         }
 
         private bool RunTest(string test, string result)
