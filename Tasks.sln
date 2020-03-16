@@ -3,15 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTester", "tester\SimpleTester.csproj", "{258E03A0-3B0E-45B8-8D12-D5593FCD7644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTester", "tester\SimpleTester.csproj", "{258E03A0-3B0E-45B8-8D12-D5593FCD7644}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1NOD", "task1NOD\task1NOD.csproj", "{1B4B9990-412C-468D-9E35-252D244616C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task1POW", "task1POW\task1POW.csproj", "{2787D776-56EA-4C4D-AA9F-8EE8E71425CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1POW", "task1POW\task1POW.csproj", "{2787D776-56EA-4C4D-AA9F-8EE8E71425CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tast1Prime", "tast1CountSimpleNum\tast1Prime.csproj", "{0DFD6C95-66E7-4816-8445-4D1CE87A7CEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1Prime", "tast1CountSimpleNum\task1Prime.csproj", "{0DFD6C95-66E7-4816-8445-4D1CE87A7CEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task1Fibonacci", "task1Fibonacci\task1Fibonacci.csproj", "{9795CF71-AF58-4130-8A09-61CEC39E6A81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1Fibonacci", "task1Fibonacci\task1Fibonacci.csproj", "{9795CF71-AF58-4130-8A09-61CEC39E6A81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task2King", "task2King\task2King.csproj", "{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task2Horse", "task2Horse\task2Horse.csproj", "{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task2FEN", "task2FEN\task2FEN.csproj", "{C3717192-693D-40CC-97DC-271E28A6C32A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task2Truckers", "task2Truckers\task2Truckers.csproj", "{749A6821-49A1-49FA-A050-4CC4331626A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +47,22 @@ Global
 		{9795CF71-AF58-4130-8A09-61CEC39E6A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9795CF71-AF58-4130-8A09-61CEC39E6A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9795CF71-AF58-4130-8A09-61CEC39E6A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3717192-693D-40CC-97DC-271E28A6C32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3717192-693D-40CC-97DC-271E28A6C32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3717192-693D-40CC-97DC-271E28A6C32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3717192-693D-40CC-97DC-271E28A6C32A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{749A6821-49A1-49FA-A050-4CC4331626A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{749A6821-49A1-49FA-A050-4CC4331626A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{749A6821-49A1-49FA-A050-4CC4331626A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{749A6821-49A1-49FA-A050-4CC4331626A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
