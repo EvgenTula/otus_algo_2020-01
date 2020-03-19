@@ -6,7 +6,7 @@ namespace task2King
     {
         public override string Run(string[] data)
         {
-
+            string result;
             int x = int.Parse(data[0]);
             ulong k = 1ul << x;
             ulong nA = 0xFEFEFEFEFEFEFEFE;
@@ -16,6 +16,7 @@ namespace task2King
                         ((k & nA) << 7) | ((k & nH) >> 7) |
                         (k << 8) | (k >> 8) |
                         ((k & nH) << 9) | ((k & nA) >> 9);
+            result = mask.ToString();
             long cnt = 0;
             while (mask > 0)
             {
@@ -23,7 +24,7 @@ namespace task2King
                 mask &= mask - 1;
             }
 
-            return cnt + "\r\n" + mask;
+            return cnt + "\r\n" + result;
         }
     }
 }
