@@ -23,7 +23,8 @@ namespace task1Fibonacci
             get
             {
                 Matrix2d result = new Matrix2d();
-                result.arr = new int[,] { { 1, 0 }, { 1, 0 } };
+                result.arr = new int[,] { { 1, 0 },
+                                          { 0, 1 } };
                 return result;
             }
         }
