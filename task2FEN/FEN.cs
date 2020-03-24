@@ -25,103 +25,77 @@ namespace task2FEN
     class Fen : Task
     {
         public override string Run(string[] data)
-        {
+        {         
             ulong[] board = new ulong[12];
             //2 ^ (64 - 1) == 9223372036854775808
-            ulong position = 9223372036854775808;//Math.Pow(2,64);
-            string positions = "7k/8/8/8/8/8/8/K7";//data[0];
+            ulong position = 9223372036854775808;
+            
+            string positions = data[0];
             position >>= 7;
+
+            ulong currentPosition = position;
             foreach (char item in positions)
             {
                 if (item == '/')
                 {
                     position >>= 8;
+                    currentPosition = position;
                     continue;
                 }
 
 
                 switch (item)
                 {
-                    //K, Q, R, B, N, P — белые король, ферзь, ладья, слон, конь, пешка. 
-                    //k, q, r, b, n, p — чёрные король, ферзь, ладья, слон, конь, пешка.
-                    case 'K':
-                        board[(int)Piece.whiteKing] += position;
-                        break;
+                    case 'K': fillBoard(Piece.whiteKing);   break;
 
-                    case 'Q':
-                        board[(int)Piece.whiteQueens] += position;
-                        break;
+                    case 'Q': fillBoard(Piece.whiteQueens); break;
 
-                    case 'R':
-                        board[(int)Piece.whiteRooks] += position;
-                        break;
+                    case 'R': fillBoard(Piece.whiteRooks);  break;
 
-                    case 'B':
-                        board[(int)Piece.whiteBishops] += position;
-                        break;
+                    case 'B': fillBoard(Piece.whiteBishops);break;
 
-                    case 'N':
-                        board[(int)Piece.whiteKnights] += position;
-                        break
-                            ;
-                    case 'P':
-                        board[(int)Piece.whitePawns] += position;
-                        break;
+                    case 'N': fillBoard(Piece.whiteKnights);break;
+                            
+                    case 'P': fillBoard(Piece.whitePawns);  break;
+ 
 
+                    case 'k': fillBoard(Piece.blackKing);   break;
 
-                    case 'k':
-                        board[(int)Piece.blackKing] += position;
-                        break;
+                    case 'q': fillBoard(Piece.blackQueens); break;
 
-                    case 'q':
-                        board[(int)Piece.blackQueens] += position;
-                        break;
+                    case 'r': fillBoard(Piece.blackRooks);  break;
 
-                    case 'r':
-                        board[(int)Piece.blackRooks] += position;
-                        break;
+                    case 'b': fillBoard(Piece.blackBishops);break;
 
-                    case 'b':
-                        board[(int)Piece.blackBishops] += position;
-                        break;
+                    case 'n': fillBoard(Piece.blackKnights);break;
 
-                    case 'n':
-                        board[(int)Piece.blackKnights] += position;
-                        break;
-
-                    case 'p':
-                        board[(int)Piece.blackPawns] += position;
-                        break;
+                    case 'p': fillBoard(Piece.blackPawns);  break;
 
                     default:
-
-                        position = position << (int)Char.GetNumericValue(item);
+                        currentPosition = currentPosition << (int)Char.GetNumericValue(item);
                         break;
 
                 }
             }
-            /*
-            ulong k = 1ul << x;
-            ulong nA = 0xFEFEFEFEFEFEFEFE;
-            ulong nH = 0x7F7F7F7F7F7F7F7F;
-            ulong mask =
 
+            String result = "";
 
-                        ((k & nH) << 1) | ((k & nA) >> 1) |
-                        ((k & nA) << 7) | ((k & nH) >> 7) |
-                        (k << 8) | (k >> 8) |
-                        ((k & nH) << 9) | ((k & nA) >> 9);
-            result = mask.ToString();
-            long cnt = 0;
-            while (mask > 0)
+            for(int i = 0; i < board.Length; i++)
             {
-                cnt++;
-                mask &= mask - 1;
+                if (result != "")
+                    result += "\r\n";
+                result += board[i].ToString();
             }
-            */
-            //return cnt + "\r\n" + result;
+         
+            return result;
 
-            return "";
+
+
+            void fillBoard(Piece piece)
+            {
+                board[(int)piece] += currentPosition;
+                currentPosition <<= 1;
+            };
         }
     }
 }
