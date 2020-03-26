@@ -24,7 +24,7 @@ namespace task2Truckers
     class Truckers : Task
     {
         public override string Run(string[] data)
-        {        
+        {
             int[] board = new int[64];
             int index = board.Length - 1;
             int currentIndex = index;
@@ -35,7 +35,7 @@ namespace task2Truckers
             int positionWhiteBishops = -1;
             int positionWhiteQueens = -1;
 
-            string positions = "5k2/8/4Q3/8/5B2/2R5/8/3K4";//data[0];
+            string positions = data[0];
             position >>= 7;
 
             index -= 7;
@@ -56,43 +56,68 @@ namespace task2Truckers
                 switch (item)
                 {
                     case 'K':
-                        fillBoard(Piece.whiteKing); 
+                        board[currentIndex++] = (int)Piece.whiteKing;
+                        currentPosition <<= 1;
                         break;
 
                     case 'Q':
-                        positionWhiteQueens = index;
-                        fillBoard(Piece.whiteQueens);
-                        
+                        positionWhiteQueens = currentIndex;
+                        board[currentIndex++] = (int)Piece.whiteQueens;
+                        currentPosition <<= 1;
                         break;
 
                     case 'R':
-                        positionWhiteRooks = index;
-                        fillBoard(Piece.whiteRooks);
-
+                        positionWhiteRooks = currentIndex;
+                        board[currentIndex++] = (int)Piece.whiteRooks;
+                        currentPosition <<= 1;
                         break;
 
                     case 'B':
-                        positionWhiteBishops = index;
-                        fillBoard(Piece.whiteBishops);
-
+                        positionWhiteBishops = currentIndex;
+                        board[currentIndex++] = (int)Piece.whiteBishops;
+                        currentPosition <<= 1;
                         break;
 
-                    case 'N': fillBoard(Piece.whiteKnights); break;
+                    case 'N': 
+                        board[currentIndex++] = (int)Piece.whiteKnights;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'P': fillBoard(Piece.whitePawns); break;
+                    case 'P': 
+                        board[currentIndex++] = (int)Piece.whitePawns;
+                        currentPosition <<= 1;
+                        break;
 
 
-                    case 'k': fillBoard(Piece.blackKing); break;
+                    case 'k': 
+                        board[currentIndex++] = (int)Piece.blackKing;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'q': fillBoard(Piece.blackQueens); break;
+                    case 'q': 
+                        board[currentIndex++] = (int)Piece.blackQueens;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'r': fillBoard(Piece.blackRooks); break;
+                    case 'r': 
+                        board[currentIndex++] = (int)Piece.blackRooks;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'b': fillBoard(Piece.blackBishops); break;
+                    case 'b': 
+                        board[currentIndex++] = (int)Piece.blackBishops;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'n': fillBoard(Piece.blackKnights); break;
+                    case 'n': 
+                        board[currentIndex++] = (int)Piece.blackKnights;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'p': fillBoard(Piece.blackPawns); break;
+                    case 'p': 
+                        board[currentIndex++] = (int)Piece.blackPawns;
+                        currentPosition <<= 1;
+                        break;
 
                     default:
                         currentIndex += (int)Char.GetNumericValue(item);
@@ -101,40 +126,35 @@ namespace task2Truckers
 
                 }
             }
-
-            ulong result = WhiteRooksMask(positionWhiteRooks, board);
-            return result.ToString();//WhiteRooksMask(positionWhiteRooks, board) + "\r\n" + WhiteBishopsMask(positionWhiteBishops, board) + "\r\n" + WhileQueensMask(positionWhiteQueens, board);
-
-            void fillBoard(Piece piece)
-            {
-                board[currentIndex++] = (int)piece;
-                currentPosition <<= 1;
-            };            
+            
+            return WhiteRooksMask(positionWhiteRooks, board) + "\r\n" + WhiteBishopsMask(positionWhiteBishops, board) + "\r\n" + WhileQueensMask(positionWhiteQueens, board);           
         }
         
         private ulong WhiteRooksMask(int startPosition, int[] board)
         {
-            ulong whiteRooks = 1ul << startPosition;
+            int startStep = 0;
+            ulong whiteRooks = 1ul << startPosition;            
             int currentPosition = startPosition;
             ulong nL = 0xFEFEFEFEFEFEFEFE;
             ulong nR = 0x7F7F7F7F7F7F7F7F;
             ulong maskWhiteRooks = 0;
 
             //up
-            currentPosition = startPosition + 8;
-            ulong stepRooks = whiteRooks << 8;
+            startStep = 8;
+            currentPosition = startPosition + startStep;
+            ulong stepRooks = whiteRooks << startStep;
             while (stepRooks != 0)
             {
                 int figureOnBoard = board[currentPosition];
 
-                if (figureOnBoard < 6)
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
                 {
                     break;
                 }
 
                 maskWhiteRooks |= stepRooks;
-                currentPosition += 8;
-                stepRooks <<= 8;
+                currentPosition += startStep;
+                stepRooks <<= startStep;
                 
                 if (figureOnBoard > 6)
                 {                
@@ -143,19 +163,20 @@ namespace task2Truckers
             }
 
             //down
-            currentPosition = startPosition - 8;
-            stepRooks = whiteRooks >> 8;
+            startStep = 8;
+            currentPosition = startPosition - startStep;
+            stepRooks = whiteRooks >> startStep;
             while (stepRooks != 0)
             {
                 int figureOnBoard = board[currentPosition];
-                if (figureOnBoard < 6)
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
                 {
                     break;
                 }
 
                 maskWhiteRooks |= stepRooks;
-                currentPosition -= 8;
-                stepRooks >>= 8;
+                currentPosition -= startStep;
+                stepRooks >>= startStep;
 
                 if (figureOnBoard > 6)
                 {
@@ -165,19 +186,20 @@ namespace task2Truckers
 
 
             //left
-            currentPosition = startPosition - 1;
-            stepRooks = (whiteRooks & nL) >> 1;
+            startStep = 1;
+            currentPosition = startPosition - startStep;
+            stepRooks = (whiteRooks & nL) >> startStep;
             while (stepRooks != 0)
             {
                 int figureOnBoard = board[currentPosition];
-                if (figureOnBoard < 6)
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
                 {
                     break;
                 }
 
                 maskWhiteRooks |= stepRooks;
-                currentPosition -= 1;
-                stepRooks = (stepRooks & nL) >> 1;
+                currentPosition -= startStep;
+                stepRooks = (stepRooks & nL) >> startStep;
 
                 if (figureOnBoard > 6)
                 {
@@ -185,19 +207,20 @@ namespace task2Truckers
                 }
             }
             //right
-            currentPosition = startPosition + 1;
-            stepRooks = (whiteRooks & nR) << 1;
+            startStep = 1;
+            currentPosition = startPosition + startStep;
+            stepRooks = (whiteRooks & nR) << startStep;
             while (stepRooks != 0)
             {
                 int figureOnBoard = board[currentPosition];
-                if (figureOnBoard < 6)
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
                 {
                     break;
                 }
 
                 maskWhiteRooks |= stepRooks;
-                currentPosition += 1;
-                stepRooks = (stepRooks & nR) << 1;
+                currentPosition += startStep;
+                stepRooks = (stepRooks & nR) << startStep;
 
                 if (figureOnBoard > 6)
                 {
@@ -212,47 +235,100 @@ namespace task2Truckers
         {
             int startStep = 0;
             ulong whiteBishops = 1ul << startPosition;
+            int currentPosition = startPosition;
             ulong nL = 0xFEFEFEFEFEFEFEFE;
             ulong nR = 0x7F7F7F7F7F7F7F7F;
             ulong maskWhiteBishops = 0;
 
             //up-left            
             startStep = 7;
+            currentPosition = startPosition + startStep;
             ulong stepBishops = (whiteBishops & nL) << startStep;
             while (stepBishops != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
 
                 maskWhiteBishops |= stepBishops;
-                stepBishops = (stepBishops & nL) << startStep;
+                currentPosition += startStep;
+                stepBishops = (stepBishops & nL) << startStep;              
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
             //up-right
             startStep = 9;
+            currentPosition = startPosition + startStep;
             stepBishops = (whiteBishops & nR) << startStep;
             while (stepBishops != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteBishops |= stepBishops;
+                currentPosition += startStep;
                 stepBishops = (stepBishops & nR) << startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
 
             //down-left
             startStep = 9;
+            currentPosition = startPosition - startStep;
             stepBishops = (whiteBishops & nL) >> startStep;
             while (stepBishops != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteBishops |= stepBishops;
-                stepBishops = (stepBishops & nL) >> startStep;
+                currentPosition -= startStep;
+                stepBishops = (stepBishops & nL) >> startStep;                
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
 
             //down-right
             startStep = 7;
+            currentPosition = startPosition - startStep;
             stepBishops = (whiteBishops & nR) >> startStep;
             while (stepBishops != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteBishops |= stepBishops;
-                stepBishops = (stepBishops & nR) >> startStep;
+                currentPosition -= startStep;
+                stepBishops = (stepBishops & nR) >> startStep;               
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
+
             }
 
             return maskWhiteBishops;
@@ -262,79 +338,185 @@ namespace task2Truckers
         {
             int startStep = 0;
             ulong whiteQueens = 1ul << startPosition;
+            int currentPosition = startPosition;
             ulong nL = 0xFEFEFEFEFEFEFEFE;
             ulong nR = 0x7F7F7F7F7F7F7F7F;
             ulong maskWhiteQueens = 0;
             ulong stepQueens = 0;
 
             //left
-            stepQueens = (whiteQueens & nL) >> 1;
+            startStep = 1;
+            currentPosition = startPosition - startStep;
+            stepQueens = (whiteQueens & nL) >> startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteQueens |= stepQueens;
-                stepQueens = (stepQueens & nL) >> 1;
+                currentPosition -= startStep;
+                stepQueens = (stepQueens & nL) >> startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
             //up-left            
             startStep = 7;
+            currentPosition = startPosition + startStep;
             stepQueens = (whiteQueens & nL) << startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
 
                 maskWhiteQueens |= stepQueens;
+                currentPosition += startStep;
                 stepQueens = (stepQueens & nL) << startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }                
             }
 
             //up
-            stepQueens = whiteQueens << 8;
+            startStep = 8;
+            currentPosition = startPosition + startStep;
+            stepQueens = whiteQueens << startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
 
                 maskWhiteQueens |= stepQueens;
-                stepQueens <<= 8;
+                currentPosition += startStep;
+                stepQueens <<= startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
             //up-right
             startStep = 9;
+            currentPosition = startPosition + startStep;
             stepQueens = (whiteQueens & nR) << startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteQueens |= stepQueens;
+                currentPosition += startStep;
                 stepQueens = (stepQueens & nR) << startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
             //right
-            stepQueens = (whiteQueens & nR) << 1;
+            startStep = 1;
+            currentPosition = startPosition + startStep;
+            stepQueens = (whiteQueens & nR) << startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteQueens |= stepQueens;
-                stepQueens = (stepQueens & nR) << 1;
+                currentPosition += startStep;
+                stepQueens = (stepQueens & nR) << startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }                
             }
 
             //down-right
             startStep = 7;
+            currentPosition = startPosition - startStep;
             stepQueens = (whiteQueens & nR) >> startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteQueens |= stepQueens;
+                currentPosition -= startStep;
                 stepQueens = (stepQueens & nR) >> startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
 
             //down
-            stepQueens = whiteQueens >> 8;
+            startStep = 8;
+            currentPosition = startPosition - startStep;
+            stepQueens = whiteQueens >> startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteQueens |= stepQueens;
-                stepQueens >>= 8;
+                currentPosition -= startStep;
+                stepQueens >>= startStep;
+
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }                
             }
 
             //down-left
             startStep = 9;
+            currentPosition = startPosition - startStep;
             stepQueens = (whiteQueens & nL) >> startStep;
             while (stepQueens != 0)
             {
+                int figureOnBoard = board[currentPosition];
+                if (figureOnBoard != 0 && figureOnBoard <= 6)
+                {
+                    break;
+                }
+
                 maskWhiteQueens |= stepQueens;
+                currentPosition -= startStep;
                 stepQueens = (stepQueens & nL) >> startStep;
+                if (figureOnBoard > 6)
+                {
+                    break;
+                }
             }
             return maskWhiteQueens;
         }

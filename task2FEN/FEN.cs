@@ -24,13 +24,14 @@ namespace task2FEN
 
     class Fen : Task
     {
+        
         public override string Run(string[] data)
-        {         
+        {
             ulong[] board = new ulong[12];
             //2 ^ (64 - 1) == 9223372036854775808
             ulong position = 9223372036854775808;
-            
-            string positions = data[0];
+
+            string positions =  data[0];
             position >>= 7;
 
             ulong currentPosition = position;
@@ -46,30 +47,66 @@ namespace task2FEN
 
                 switch (item)
                 {
-                    case 'K': fillBoard(Piece.whiteKing);   break;
+                    case 'K':
+                        board[(int)Piece.whiteKing] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'Q': fillBoard(Piece.whiteQueens); break;
+                    case 'Q': 
+                        board[(int)Piece.whiteQueens] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'R': fillBoard(Piece.whiteRooks);  break;
+                    case 'R': 
+                        board[(int)Piece.whiteRooks] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'B': fillBoard(Piece.whiteBishops);break;
+                    case 'B': 
+                        board[(int)Piece.whiteBishops] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'N': fillBoard(Piece.whiteKnights);break;
+                    case 'N': 
+                        board[(int)Piece.whiteKnights] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
                             
-                    case 'P': fillBoard(Piece.whitePawns);  break;
+                    case 'P': 
+                        board[(int)Piece.whitePawns] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
  
 
-                    case 'k': fillBoard(Piece.blackKing);   break;
+                    case 'k': 
+                        board[(int)Piece.blackKing] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'q': fillBoard(Piece.blackQueens); break;
+                    case 'q': 
+                        board[(int)Piece.blackQueens] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'r': fillBoard(Piece.blackRooks);  break;
+                    case 'r': 
+                        board[(int)Piece.blackRooks] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'b': fillBoard(Piece.blackBishops);break;
+                    case 'b': 
+                        board[(int)Piece.blackBishops] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'n': fillBoard(Piece.blackKnights);break;
+                    case 'n': 
+                        board[(int)Piece.blackKnights] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
-                    case 'p': fillBoard(Piece.blackPawns);  break;
+                    case 'p': 
+                        board[(int)Piece.blackPawns] += currentPosition;
+                        currentPosition <<= 1;
+                        break;
 
                     default:
                         currentPosition = currentPosition << (int)Char.GetNumericValue(item);
@@ -89,13 +126,6 @@ namespace task2FEN
          
             return result;
 
-
-
-            void fillBoard(Piece piece)
-            {
-                board[(int)piece] += currentPosition;
-                currentPosition <<= 1;
-            };
         }
     }
 }
