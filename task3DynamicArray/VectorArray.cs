@@ -11,8 +11,8 @@ namespace task3DynamicArray
         private int size;
         public VectorArray()
         {
-            this.capacity = 100;
-            array = new T[this.capacity];
+            array = new T[0];
+            this.capacity = 100;           
         }
 
         public VectorArray(int capacity)
