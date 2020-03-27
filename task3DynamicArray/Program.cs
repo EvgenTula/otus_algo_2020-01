@@ -6,8 +6,8 @@ namespace task3DynamicArray
     {
         static void Main(string[] args)
         {
-            SingleArray<String> singleArray = new SingleArray<string>();
-            addValues(singleArray, 10);
+            IArray<String> singleArray = new VectorArray<string>();
+            addValues(singleArray, 100);
             singleArray.Add("ЫЫЫ", 3);
             singleArray.Remove(3);
             Console.ReadKey();

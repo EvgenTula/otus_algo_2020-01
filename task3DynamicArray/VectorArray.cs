@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace task3DynamicArray
 {
@@ -23,7 +21,8 @@ namespace task3DynamicArray
 
         public void Add(T item)
         {
-            if (Size() == array.Length)
+            
+            if (Size() >= array.Length)
                 array = ((IArray<T>)this).Resize(array, capacity);
             
             array[Size()] = item;
@@ -32,17 +31,28 @@ namespace task3DynamicArray
 
         public void Add(T item, int index)
         {
-            throw new NotImplementedException();
+            
+            T[] newArray = null;
+            if (Size() >= array.Length)
+                newArray = new T[Size() + capacity];
+            Array.Copy(array, 0, newArray, 0, index);
+            newArray[index] = item;
+            Array.Copy(array, index, newArray, index + 1, array.Length - index);
+            array = newArray;
+            size++;
         }
 
         public T Get(int index)
         {
-            throw new NotImplementedException();
+            return array[index];
         }
 
         public T Remove(int index)
         {
-            throw new NotImplementedException();
+            T result = Get(index);
+            Array.Copy(array, 0, array, 0, index);
+            Array.Copy(array, index + 1, array, index, size - (index - 1));
+            return result;
         }
 
         public int Size()
