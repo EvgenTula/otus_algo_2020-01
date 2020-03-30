@@ -9,7 +9,7 @@ namespace task3DynamicArray
         void Add(T item, int index);
         T Get(int index);
         T Remove(int index);
-        T[] Resize(T[] array, int delta)
+        virtual T[] Resize(T[] array, int delta)
         {
             T[] result = new T[array.Length + delta];
             Array.Copy(array, result, array.Length);

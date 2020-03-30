@@ -6,10 +6,12 @@ namespace task3DynamicArray
     {
         static void Main(string[] args)
         {
-            IArray<String> singleArray = new VectorArray<string>();
-            addValues(singleArray, 100);
-            singleArray.Add("ЫЫЫ", 3);
-            singleArray.Remove(3);
+            //IArray<String> singleArray = new SingleArray<string>();
+            //IArray<String> array = new VectorArray<string>();
+            IArray<String> array = new FactorArray<string>();
+            addValues(array, 99);
+            array.Add("ЫЫЫ", 3);
+            array.Remove(3);
             Console.ReadKey();
         }
 

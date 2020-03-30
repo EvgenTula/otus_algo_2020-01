@@ -12,7 +12,7 @@ namespace task3DynamicArray
         public FactorArray()
         {
             array = new T[0];
-            this.capacity = 100; 
+            this.capacity = 100;
         }
 
         public FactorArray(int capacity)
@@ -23,8 +23,13 @@ namespace task3DynamicArray
 
         public void Add(T item)
         {
-            if (Size() == array.Length)
-                array = ((IArray<T>)this).Resize(array, capacity);
+
+            if (Size() >= array.Length)
+            {
+                T[] result = new T[capacity *= 2];
+                Array.Copy(array, result, array.Length);
+                array = result;
+            }
 
             array[Size()] = item;
             size++;
@@ -32,7 +37,17 @@ namespace task3DynamicArray
 
         public void Add(T item, int index)
         {
-            throw new NotImplementedException();
+
+            T[] newArray = null;
+            if (Size() >= array.Length)
+                newArray = new T[capacity *= 2];
+            else
+                newArray = new T[array.Length];
+            Array.Copy(array, 0, newArray, 0, index);
+            newArray[index] = item;
+            Array.Copy(array, index, newArray, index + 1, Size() - index);
+            array = newArray;
+            size++;
         }
 
         public T Get(int index)
@@ -42,7 +57,10 @@ namespace task3DynamicArray
 
         public T Remove(int index)
         {
-            throw new NotImplementedException();
+            T result = Get(index);
+            Array.Copy(array, 0, array, 0, index);
+            Array.Copy(array, index + 1, array, index, size - (index - 1));
+            return result;
         }
 
         public int Size()

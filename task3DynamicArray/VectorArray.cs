@@ -35,9 +35,11 @@ namespace task3DynamicArray
             T[] newArray = null;
             if (Size() >= array.Length)
                 newArray = new T[Size() + capacity];
+            else
+                newArray = new T[array.Length];
             Array.Copy(array, 0, newArray, 0, index);
             newArray[index] = item;
-            Array.Copy(array, index, newArray, index + 1, array.Length - index);
+            Array.Copy(array, index, newArray, index + 1, Size() - index);
             array = newArray;
             size++;
         }
