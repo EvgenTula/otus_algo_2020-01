@@ -11,20 +11,21 @@ namespace task3DynamicArray
         private int size;
         public FactorArray()
         {
-            array = new T[0];
             this.capacity = 100;
+            array = new T[this.capacity];            
         }
 
         public FactorArray(int capacity)
         {
-            array = new T[0];
             this.capacity = capacity;
+            array = new T[this.capacity];
         }
 
         public void Add(T item)
         {
-
-            if (Size() >= array.Length)
+            Add(item, Size());
+            /*
+            if (Size() == array.Length)
             {
                 T[] result = new T[capacity *= 2];
                 Array.Copy(array, result, array.Length);
@@ -33,19 +34,21 @@ namespace task3DynamicArray
 
             array[Size()] = item;
             size++;
+            */
         }
 
         public void Add(T item, int index)
         {
 
             T[] newArray = null;
-            if (Size() >= array.Length)
+            if (Size() == array.Length)
                 newArray = new T[capacity *= 2];
             else
                 newArray = new T[array.Length];
             Array.Copy(array, 0, newArray, 0, index);
             newArray[index] = item;
             Array.Copy(array, index, newArray, index + 1, Size() - index);
+            //Array.Copy(array, index, newArray, index + 1, array.Length - index);            
             array = newArray;
             size++;
         }
@@ -58,8 +61,8 @@ namespace task3DynamicArray
         public T Remove(int index)
         {
             T result = Get(index);
-            Array.Copy(array, 0, array, 0, index);
-            Array.Copy(array, index + 1, array, index, size - (index - 1));
+            size--;
+            Array.Copy(array, index + 1, array, index, Size() - index);
             return result;
         }
 

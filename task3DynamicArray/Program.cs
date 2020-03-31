@@ -6,10 +6,11 @@ namespace task3DynamicArray
     {
         static void Main(string[] args)
         {
-            //IArray<String> singleArray = new SingleArray<string>();
-            //IArray<String> array = new VectorArray<string>();
-            IArray<String> array = new FactorArray<string>();
-            addValues(array, 99);
+            //IArray<String> array = new SingleArray<string>();
+            //IArray<String> array = new VectorArray<string>(10);
+            //IArray<String> array = new FactorArray<string>();
+            IArray<String> array = new MatrixArray<string>();
+            addValues(array, 100);
             array.Add("ЫЫЫ", 3);
             array.Remove(3);
             Console.ReadKey();
@@ -27,5 +28,6 @@ namespace task3DynamicArray
         {
 
         }
+       
     }
 }
