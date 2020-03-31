@@ -13,10 +13,6 @@ namespace task3DynamicArray
         public void Add(T item)
         {
             Add(item, Size());
-            /*
-            array = ((IArray<T>)this).Resize(array, 1);
-            array[Size() - 1] = item;
-            */
         }
 
         public void Add(T item, int index)

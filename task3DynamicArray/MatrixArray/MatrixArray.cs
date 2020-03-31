@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace task3DynamicArray
+﻿namespace task3DynamicArray
 {
     class MatrixArray<T> : IArray<T>
     {

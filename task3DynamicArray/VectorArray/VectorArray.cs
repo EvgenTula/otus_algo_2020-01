@@ -22,13 +22,6 @@ namespace task3DynamicArray
         public void Add(T item)
         {
             Add(item, Size());
-            /*
-            if (Size() == array.Length)
-                array = ((IArray<T>)this).Resize(array, capacity);
-            
-            array[Size()] = item;
-            size++;
-            */
         }
 
         public void Add(T item, int index)
@@ -42,7 +35,6 @@ namespace task3DynamicArray
             Array.Copy(array, 0, newArray, 0, index);
             newArray[index] = item;
             Array.Copy(array, index, newArray, index + 1, Size() - index);
-            //Array.Copy(array, index, newArray, index + 1, array.Length - index);
             array = newArray;
             size++;
         }
