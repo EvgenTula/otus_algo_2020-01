@@ -62,6 +62,10 @@
                 prevRow.Add(row.Get(0));
                 row.Remove(0);
             }
+            if (array.Get(array.Size() - 1).Size() == 0)
+            {
+                array.Remove(array.Size() - 1);
+            }
             return result;
         }
 

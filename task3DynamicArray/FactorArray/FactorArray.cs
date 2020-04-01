@@ -49,6 +49,7 @@ namespace task3DynamicArray
             T result = Get(index);
             size--;
             Array.Copy(array, index + 1, array, index, Size() - index);
+            array[size] = default(T);
             return result;
         }
 
