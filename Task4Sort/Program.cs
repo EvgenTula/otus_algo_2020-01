@@ -9,48 +9,6 @@ namespace Task4Sort
     {
         static void Main(string[] args)
         {
-            /*
-            string str = File.ReadAllText(@"C:\dev\otus_algo_2020-01\Task4Sort\Test\test.0.in");
-            int[] array = Array.ConvertAll(str.Split(" "), s => int.Parse(s));
-
-            Array.Sort(array);
-            int cntIntem = array.Length / 100 * 5;
-            Random random = new Random();
-            StringBuilder stringBuilder = new StringBuilder();
-            for(int i = array.Length - cntIntem; i < array.Length; i++)
-            {
-                array[i] = random.Next(array.Length);
-                
-            }
-            for (int i = 0; i < array.Length; i++)
-            {
-                stringBuilder.Append(array[i] + " ");
-                if (stringBuilder.Capacity - 500 == stringBuilder.MaxCapacity)
-                {
-                    File.AppendAllText(@"C:\dev\otus_algo_2020-01\Task4Sort\Test\test.1.in", stringBuilder.ToString());
-                    stringBuilder.Clear();
-                }
-
-
-            }
-            
-
-            File.AppendAllText(@"C:\dev\otus_algo_2020-01\Task4Sort\Test\test.1.in", stringBuilder.ToString());
-
-            stringBuilder.Clear();
-            Array.Sort(array);
-            for (int i = 0; i < array.Length; i++)
-            {
-                stringBuilder.Append(array[i] + " ");
-                if (stringBuilder.Capacity - 5000 == stringBuilder.MaxCapacity)
-                {
-                    File.AppendAllText(@"C:\dev\otus_algo_2020-01\Task4Sort\Test\test.1.out", stringBuilder.ToString());
-                    stringBuilder.Clear();
-                }
-            }
-            File.AppendAllText(@"C:\dev\otus_algo_2020-01\Task4Sort\Test\test.1.out", stringBuilder.ToString());
-            */
-            
             Directory.SetCurrentDirectory("..\\..\\..\\Test");
             String currentDir = Directory.GetCurrentDirectory();
 
