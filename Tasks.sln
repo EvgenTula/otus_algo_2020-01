@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task2FEN", "task2FEN\task2F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task2Truckers", "task2Truckers\task2Truckers.csproj", "{749A6821-49A1-49FA-A050-4CC4331626A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task3DynamicArray", "task3DynamicArray\task3DynamicArray.csproj", "{F23F88EC-6500-4F5A-98FA-AF254EB2ED72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task3DynamicArray", "task3DynamicArray\task3DynamicArray.csproj", "{F23F88EC-6500-4F5A-98FA-AF254EB2ED72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task3PriorityQueue", "task3PriorityQueue\task3PriorityQueue.csproj", "{3495E4D7-3840-499B-8AB8-95E18EF60322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task3PriorityQueue", "task3PriorityQueue\task3PriorityQueue.csproj", "{3495E4D7-3840-499B-8AB8-95E18EF60322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4Sort", "Task4Sort\Task4Sort.csproj", "{7C6658B4-8839-42C7-8292-6351C110B7AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{3495E4D7-3840-499B-8AB8-95E18EF60322}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3495E4D7-3840-499B-8AB8-95E18EF60322}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3495E4D7-3840-499B-8AB8-95E18EF60322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6658B4-8839-42C7-8292-6351C110B7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6658B4-8839-42C7-8292-6351C110B7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6658B4-8839-42C7-8292-6351C110B7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6658B4-8839-42C7-8292-6351C110B7AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
