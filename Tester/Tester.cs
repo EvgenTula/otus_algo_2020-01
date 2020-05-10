@@ -25,8 +25,7 @@ namespace SimpleTester
             File.AppendAllText(this._path + "\\Result.md", $"<tr><th>Test</th><th>Time (ms)</th></tr>\n");
 
             while (true)
-            {
-                
+            {                
                 string test = $"{this._path}\\test.{num}.in";
                 string result = $"{this._path}\\test.{num}.out";
                 if (!File.Exists(test) || !File.Exists(result))
