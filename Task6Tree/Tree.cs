@@ -2,12 +2,13 @@
 
 namespace Task6Tree
 {
-    public abstract class Tree<T>
+    public abstract class Tree<T, F>
         where T : IComparable
+        where F : TreeNode<T,F>
     {
-        internal BinaryTreeNode<T> root;
+        public F root { get; set; }
         public abstract void insert(T val);
-        public abstract bool search(T val);
+        public abstract F search(T val);
         public abstract void remove(T val);
     }
 }
