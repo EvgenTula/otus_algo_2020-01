@@ -168,13 +168,14 @@ namespace Task7RBTree
 
         public override void remove(T val)
         {
-            RBTreeNode<T> parent;
-            RBTreeNode<T> current = searchWithParent(val, out parent);
+            
+            RBTreeNode<T> current = searchWithParent(val);
+
             if (current == null)
             {
                 return;
             }
-
+            RBTreeNode<T> parent = current.parent;
             //Удаление листа
             if (current.left == null && current.right == null)
             {
@@ -203,10 +204,14 @@ namespace Task7RBTree
                         if (parent.left == current)
                         {
                             parent.left = current.right;
+                            //balance
+                            //parent.left.color = current.color;
                         }
                         else
                         {
                             parent.right = current.right;
+                            //balance
+                            //parent.right.color = current.color;
                         }
                     }
                 }
@@ -221,18 +226,22 @@ namespace Task7RBTree
                         if (parent.left == current)
                         {
                             parent.left = current.left;
+                            //balance
+                            //parent.left.color = current.color;
                         }
                         else
                         {
                             parent.right = current.left;
+                            //balance
+                            //parent.right.color = current.color;
                         }
                     }
                 }
-                return;
-            }
-
+                //return;
+            } 
+            else
             //Удаляемый элемент имеет двух потомков
-            if (current.left != null && current.right != null)
+            //if (current.left != null && current.right != null)
             {
                 RBTreeNode<T> binaryTreeNode = current.left;
                 RBTreeNode<T> parentBinaryTreeNode = current;
@@ -266,28 +275,47 @@ namespace Task7RBTree
                     }
                 }
             }
+
+            if (current.color == Color.Black)
+            {
+                //fixBalance(current);
+            }
+        }
+
+        private void fixBalance(RBTreeNode<T> node)
+        {
+            //TODO ...
+            if (node.parent.left == node)
+            {
+                if (node.parent.right.color == Color.Red)
+                {
+
+                }
+            }
+            else
+            {
+
+            }
+
         }
 
         public override RBTreeNode<T> search(T val)
         {
-            return searchWithParent(val, out _);
+            return searchWithParent(val);
         }
 
-        private RBTreeNode<T> searchWithParent(T val, out RBTreeNode<T> parent)
+        private RBTreeNode<T> searchWithParent(T val)
         {
             RBTreeNode<T> result = root;
-            parent = null;
             while (result != null)
             {
                 int compare = result.value.CompareTo(val);
                 if (compare > 0)
                 {
-                    parent = result;
                     result = result.left;
                 }
                 if (compare < 0)
                 {
-                    parent = result;
                     result = result.right;
                 }
                 if (compare == 0)
