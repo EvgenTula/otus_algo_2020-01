@@ -10,6 +10,7 @@ namespace Task7RBTree
             set
             { 
                 base.root = value;
+                base.root.parent = null;
                 base.root.color = Color.Black;
             }
         }
@@ -35,7 +36,6 @@ namespace Task7RBTree
                             flip(currentNode);
                         }
                     }
-
                     int result = currentNode.value.CompareTo(newNode.value);
                     if (result >= 0)
                     {
@@ -57,8 +57,7 @@ namespace Task7RBTree
                         currentNode = currentNode.right;
                     }
 
-
-                                
+                    
                     if (currentNode.parent.color == Color.Red && currentNode.color == Color.Red)
                     {
                         var grandNode = currentNode.parent.parent;
@@ -90,16 +89,21 @@ namespace Task7RBTree
                             else
                                 parent.right = smallLeftRotation(grandNode);
                         }
-                    }
-                    
-
+                    }                    
                 }
+                //check(newNode);
+                
                 //1
+                if (newNode.parent == null)
+                {
+                    return;
+                }
+                //2
                 if (newNode.parent.color == Color.Black)
                 {
                     return;
                 }
-
+                //3
                 if (newNode.parent.color == Color.Red)
                 {
                     var parentNode = newNode.parent;
@@ -166,6 +170,70 @@ namespace Task7RBTree
             }
         }
 
+        private void check(RBTreeNode<T> node)
+        {
+            //1
+            if (node.parent == null)
+            {
+                node.color = Color.Black;
+            }
+            else
+            {
+                //2
+                if (node.parent.color == Color.Black)
+                {
+                    return;
+                }
+                else
+                {
+                    //3
+                    RBTreeNode<T> parent = node.parent;
+                    RBTreeNode<T> grandParent = parent.parent;
+                    RBTreeNode<T> uncle = grandParent.left == parent ? grandParent.right : grandParent.left;
+
+                    if (uncle != null && uncle.color == Color.Black)
+                    {
+                        parent.color = Color.Black;
+                        uncle.color = Color.Black;
+                        grandParent.color = Color.Red;
+
+                        check(grandParent);
+                    }
+                    else
+                    {
+                        if (node.parent.right == node && node.parent.parent.left == node.parent)
+                        {
+                            node.parent.parent.left = smallLeftRotation(node.parent);
+                        }
+                        else
+                        {
+                            if (node.parent.left == node && node.parent.parent.right == node.parent)
+                            {
+                                node.parent.parent.right = smallRightRotation(node.parent);
+                                node.parent.color = Color.Black;
+                                node.parent.parent.color = Color.Red;
+                                if (node.parent.left == node && node.parent.parent.left == node.parent)
+                                {
+                                    if (node.parent.parent.parent.left == node.parent.parent)
+                                        node.parent.parent.parent.left = smallRightRotation(node.parent.parent);
+                                    else
+                                        node.parent.parent.parent.right = smallRightRotation(node.parent.parent);
+                                }
+                                else
+                                {
+                                    if (node.parent.parent.parent.left == node.parent.parent)
+                                        node.parent.parent.parent.left = smallLeftRotation(node.parent.parent);
+                                    else
+                                        node.parent.parent.parent.right = smallLeftRotation(node.parent.parent);
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
         public override void remove(T val)
         {
             
