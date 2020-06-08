@@ -36,7 +36,15 @@ namespace Task7RBTree
                 return gnode.left;
         }
 
-        public override void insert(T val)
+        private RBTreeNode<T> sibling(RBTreeNode<T> node)
+        {
+            if (node.parent.left == node)
+                return node.parent.right;
+            else
+                return node.parent.left;
+        }
+
+    public override void insert(T val)
         {
             RBTreeNode<T> newNode = new RBTreeNode<T>(val, null);
             if (root == null)
@@ -188,47 +196,48 @@ namespace Task7RBTree
         public override void remove(T val)
         {
             
-            RBTreeNode<T> current = searchWithParent(val);
+            RBTreeNode<T> node = search(val);
 
-            if (current == null)
+            if (node == null)
             {
                 return;
             }
-            RBTreeNode<T> parent = current.parent;
+            RBTreeNode<T> parentNode = node.parent;
+           
             //Удаление листа
-            if (current.left == null && current.right == null)
+            if (node.left == null && node.right == null)
             {
-                if (parent.left == current)
+                if (parentNode.left == node)
                 {
-                    parent.left = null;
+                    parentNode.left = null;
                 }
                 else
                 {
-                    parent.right = null;
+                    parentNode.right = null;
                 }
                 return;
             }
 
             //Удаляемый элемент имеет одного потомка
-            if (current.left == null || current.right == null)
+            if (node.left == null || node.right == null)
             {
-                if (current.left == null)
+                if (node.left == null)
                 {
-                    if (parent == null)
+                    if (parentNode == null)
                     {
-                        root = current.right;
+                        root = node.right;
                     }
                     else
                     {
-                        if (parent.left == current)
+                        if (parentNode.left == node)
                         {
-                            parent.left = current.right;
+                            parentNode.left = node.right;
                             //balance
                             //parent.left.color = current.color;
                         }
                         else
                         {
-                            parent.right = current.right;
+                            parentNode.right = node.right;
                             //balance
                             //parent.right.color = current.color;
                         }
@@ -236,21 +245,21 @@ namespace Task7RBTree
                 }
                 else
                 {
-                    if (parent == null)
+                    if (parentNode == null)
                     {
-                        root = current.left;
+                        root = node.left;
                     }
                     else
                     {
-                        if (parent.left == current)
+                        if (parentNode.left == node)
                         {
-                            parent.left = current.left;
+                            parentNode.left = node.left;
                             //balance
                             //parent.left.color = current.color;
                         }
                         else
                         {
-                            parent.right = current.left;
+                            parentNode.right = node.left;
                             //balance
                             //parent.right.color = current.color;
                         }
@@ -262,68 +271,47 @@ namespace Task7RBTree
             //Удаляемый элемент имеет двух потомков
             //if (current.left != null && current.right != null)
             {
-                RBTreeNode<T> binaryTreeNode = current.left;
-                RBTreeNode<T> parentBinaryTreeNode = current;
+                RBTreeNode<T> binaryTreeNode = node.left;
+                RBTreeNode<T> parentBinaryTreeNode = node;
                 while (binaryTreeNode.right != null)
                 {
                     parentBinaryTreeNode = binaryTreeNode;
                     binaryTreeNode = binaryTreeNode.right;
                 }
 
-                binaryTreeNode.right = current.right;
+                binaryTreeNode.right = node.right;
 
-                if (parentBinaryTreeNode != current)
+                if (parentBinaryTreeNode != node)
                 {
                     parentBinaryTreeNode.right = binaryTreeNode.left;
-                    binaryTreeNode.left = current.left == binaryTreeNode ? null : current.left;
+                    binaryTreeNode.left = node.left == binaryTreeNode ? null : node.left;
                 }
 
-                if (parent == null)
+                if (parentNode == null)
                 {
                     root = binaryTreeNode;
                 }
                 else
                 {
-                    if (parent.left == current)
+                    if (parentNode.left == node)
                     {
-                        parent.left = binaryTreeNode;
+                        parentNode.left = binaryTreeNode;
                     }
                     else
                     {
-                        parent.right = binaryTreeNode;
+                        parentNode.right = binaryTreeNode;
                     }
                 }
             }
 
-            if (current.color == Color.Black)
+            if (node.color == Color.Black)
             {
                 //fixBalance(current);
             }
-        }
-
-        private void fixBalance(RBTreeNode<T> node)
-        {
-            //TODO ...
-            if (node.parent.left == node)
-            {
-                if (node.parent.right.color == Color.Red)
-                {
-
-                }
-            }
-            else
-            {
-
-            }
-
+            
         }
 
         public override RBTreeNode<T> search(T val)
-        {
-            return searchWithParent(val);
-        }
-
-        private RBTreeNode<T> searchWithParent(T val)
         {
             RBTreeNode<T> result = root;
             while (result != null)

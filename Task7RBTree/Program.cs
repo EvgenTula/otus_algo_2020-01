@@ -11,12 +11,12 @@ namespace Task7RBTree
         {
             RBTree<int> tree = new RBTree<int>();
 
-            //int size = 1000000;
-            int size = 10;
+            int size = 1000000;
+            //int size = 10;
             List<int> list = new List<int>();
 
             Random rnd = new Random();
-            /*
+            
             for (int i = 0; i < size; i++)
             {
                 int newVal = 0;
@@ -26,10 +26,10 @@ namespace Task7RBTree
                 }
                 list.Add(newVal);
             }
-            */
+            
 
-            list = Enumerable.Range(0, size).ToList();
-            list.Reverse();
+            //list = Enumerable.Range(0, size).ToList();
+            //list.Reverse();
             Console.WriteLine("list completed");
             Stopwatch sw = Stopwatch.StartNew();
             foreach (var item in list)

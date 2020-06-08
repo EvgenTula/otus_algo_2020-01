@@ -2,15 +2,15 @@
 <br>
 Test #0: insert 100000
 Test #1: search 100000/10 
-Test #2: remove 100000/10 
+<!--Test #2: remove 100000/10 -->
 <br>
 
 <table border="1">
-<caption>BinaryTree</caption>
+<caption>RBTree</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
-<tr><th>Test #0</th><th>72529</th></tr>
-<tr><th>Test #1</th><th>6700</th></tr>
-<tr><th>Test #2</th><th>5437</th></tr>
+<tr><th>Test #0</th><th>119</th></tr>
+<tr><th>Test #1</th><th>5</th></tr>
+<!--<tr><th>Test #2</th><th>5437</th></tr>-->
 </table>
 
 <table border="1">
@@ -18,7 +18,7 @@ Test #2: remove 100000/10
 <tr><th>Test</th><th>Time (ms)</th></tr>
 <tr><th>Test #0</th><th>519</th></tr>
 <tr><th>Test #1</th><th>4</th></tr>
-<tr><th>Test #2</th><th>54</th></tr>
+<!--<tr><th>Test #2</th><th>54</th></tr>-->
 </table>
 
 <br>
@@ -31,11 +31,11 @@ Test #2: remove 1000000/10
 <br>
 
 <table border="1">
-<caption>BinaryTree</caption>
+<caption>RBTree</caption>
 <tr><th>Test</th><th>Time (ms)</th></tr>
-<tr><th>Test #0</th><th>1986</th></tr>
-<tr><th>Test #1</th><th>132</th></tr>
-<tr><th>Test #2</th><th>105</th></tr>
+<tr><th>Test #0</th><th>2299</th></tr>
+<tr><th>Test #1</th><th>109</th></tr>
+<!--<tr><th>Test #2</th><th>105</th></tr>-->
 </table>
 
 <table border="1">
@@ -43,10 +43,5 @@ Test #2: remove 1000000/10
 <tr><th>Test</th><th>Time (ms)</th></tr>
 <tr><th>Test #0</th><th>9914</th></tr>
 <tr><th>Test #1</th><th>84</th></tr>
-<tr><th>Test #2</th><th>715</th></tr>
+<!--<tr><th>Test #2</th><th>715</th></tr>-->
 </table>
-<br>
-<br>
-BinaryTree очень плохо работает с числами в возрастающем порядке.
-AVLTree работает "стабильно", не зависимо от порядка входных данных.
-<br>
