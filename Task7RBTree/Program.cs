@@ -29,6 +29,7 @@ namespace Task7RBTree
             */
 
             list = Enumerable.Range(0, size).ToList();
+            list.Reverse();
             Console.WriteLine("list completed");
             Stopwatch sw = Stopwatch.StartNew();
             foreach (var item in list)

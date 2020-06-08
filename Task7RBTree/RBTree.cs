@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Task7RBTree
 {
@@ -15,11 +16,31 @@ namespace Task7RBTree
             }
         }
 
+        private RBTreeNode<T> grandparent(RBTreeNode<T> node)
+        {
+            if (node.parent !=null)
+            {
+                return node.parent.parent;
+            }
+            return null;
+        }
+
+        private RBTreeNode<T> uncle(RBTreeNode<T> node)
+        {
+            RBTreeNode<T> gnode = grandparent(node);
+            if (gnode == null)
+                return null;
+            if (node.parent == gnode.left)
+                return gnode.right;
+            else
+                return gnode.left;
+        }
+
         public override void insert(T val)
         {
             RBTreeNode<T> newNode = new RBTreeNode<T>(val, null);
             if (root == null)
-            {
+            {                
                 root = newNode;
             }
             else
@@ -28,14 +49,6 @@ namespace Task7RBTree
 
                 while (currentNode != null)
                 {
-                    if (currentNode.color == Color.Black)
-                    {
-                        if (currentNode.left?.color == Color.Red &&
-                            currentNode.right?.color == Color.Red)
-                        {
-                            flip(currentNode);
-                        }
-                    }
                     int result = currentNode.value.CompareTo(newNode.value);
                     if (result >= 0)
                     {
@@ -91,82 +104,7 @@ namespace Task7RBTree
                         }
                     }                    
                 }
-                //check(newNode);
-                
-                //1
-                if (newNode.parent == null)
-                {
-                    return;
-                }
-                //2
-                if (newNode.parent.color == Color.Black)
-                {
-                    return;
-                }
-                //3
-                if (newNode.parent.color == Color.Red)
-                {
-                    var parentNode = newNode.parent;
-                    //2
-                    if ((parentNode.parent.left == currentNode && currentNode.left == newNode) ||
-                        (parentNode.parent.right == currentNode && currentNode.right == newNode))
-                    {
-                        parentNode.parent.invert();
-                        currentNode.invert();
-                        RBTreeNode<T> grandParent = parentNode.parent;
-                        if (grandParent.parent == null)
-                        {
-                            if (grandParent.left == currentNode)
-                            {
-                                root = smallRightRotation(grandParent);
-                            }
-                            else
-                            {
-                                root = smallLeftRotation(grandParent);
-                            }
-                        }
-                        else
-                        {
-                            if (grandParent.parent.left == grandParent)
-                                grandParent.parent.left = smallRightRotation(grandParent);
-                            else
-                                grandParent.parent.right = smallLeftRotation(grandParent);
-                        }
-                    }
-
-                    //3
-                    if ((parentNode.parent.left == currentNode && currentNode.right == newNode) ||
-                        (parentNode.parent.right == currentNode && currentNode.left == newNode))
-                    {
-                        parentNode.parent.invert();
-                        newNode.invert();
-
-                        if (parentNode.parent.left == parentNode)
-                            parentNode.parent.left = smallLeftRotation(parentNode);
-                        else
-                            parentNode.parent.right = smallRightRotation(parentNode);
-
-                        RBTreeNode<T> grandParent = parentNode.parent;
-                        if (grandParent.parent.parent == null)
-                        {
-                            if (parentNode.parent.left == currentNode)
-                            {
-                                root = smallRightRotation(grandParent.parent);
-                            }
-                            else
-                            {
-                                root = smallLeftRotation(grandParent.parent);
-                            }
-                        }
-                        else
-                        {
-                            if (grandParent.parent.parent.left == grandParent.parent)
-                                grandParent.parent.parent.left = smallRightRotation(grandParent.parent);
-                            else
-                                grandParent.parent.parent.right = smallLeftRotation(grandParent.parent);
-                        }
-                    }
-                }
+                check(newNode);              
             }
         }
 
@@ -187,49 +125,62 @@ namespace Task7RBTree
                 else
                 {
                     //3
-                    RBTreeNode<T> parent = node.parent;
-                    RBTreeNode<T> grandParent = parent.parent;
-                    RBTreeNode<T> uncle = grandParent.left == parent ? grandParent.right : grandParent.left;
+                    RBTreeNode<T> parentNode = node.parent;
+                    RBTreeNode<T> grandparentNode = grandparent(node);
+                    RBTreeNode<T> uncleNode = uncle(node);
 
-                    if (uncle != null && uncle.color == Color.Black)
+                    if (uncleNode != null && uncleNode.color == Color.Red)
                     {
-                        parent.color = Color.Black;
-                        uncle.color = Color.Black;
-                        grandParent.color = Color.Red;
-
-                        check(grandParent);
+                        parentNode.color = Color.Black;
+                        uncleNode.color = Color.Black;
+                        grandparentNode.color = Color.Red;
+                        check(grandparentNode);
                     }
                     else
                     {
-                        if (node.parent.right == node && node.parent.parent.left == node.parent)
+                        //4
+                        if (node.parent.right == node && grandparentNode.left == node.parent)
                         {
-                            node.parent.parent.left = smallLeftRotation(node.parent);
+                            grandparentNode.left = smallLeftRotation(node.parent);
+                            node = node.left;
+                        }
+                        else if (node.parent.left == node && grandparentNode.right == node.parent)
+                        {
+                            grandparentNode.right = smallRightRotation(node.parent);
+                            node = node.right;
+                        }
+                        grandparentNode = grandparent(node);
+                        //5
+                        node.parent.color = Color.Black;
+                        grandparentNode.color = Color.Red;
+                        if (node.parent.left == node && grandparentNode.left == node.parent)
+                        {
+                            if (grandparentNode == root)
+                            {
+                                root = smallRightRotation(grandparentNode);
+                            }
+                            else
+                            {
+                                if (grandparentNode.parent.left == grandparentNode)
+                                    grandparentNode.parent.left = smallRightRotation(grandparentNode);
+                                else
+                                    grandparentNode.parent.right = smallRightRotation(grandparentNode);
+                            }
                         }
                         else
                         {
-                            if (node.parent.left == node && node.parent.parent.right == node.parent)
+                            if (grandparentNode == root)
                             {
-                                node.parent.parent.right = smallRightRotation(node.parent);
-                                node.parent.color = Color.Black;
-                                node.parent.parent.color = Color.Red;
-                                if (node.parent.left == node && node.parent.parent.left == node.parent)
-                                {
-                                    if (node.parent.parent.parent.left == node.parent.parent)
-                                        node.parent.parent.parent.left = smallRightRotation(node.parent.parent);
-                                    else
-                                        node.parent.parent.parent.right = smallRightRotation(node.parent.parent);
-                                }
-                                else
-                                {
-                                    if (node.parent.parent.parent.left == node.parent.parent)
-                                        node.parent.parent.parent.left = smallLeftRotation(node.parent.parent);
-                                    else
-                                        node.parent.parent.parent.right = smallLeftRotation(node.parent.parent);
-
-                                }
+                                root = smallLeftRotation(grandparentNode);
                             }
-                        }
-
+                            else
+                            {
+                                if (grandparentNode.parent.left == grandparentNode)
+                                    grandparentNode.parent.left = smallLeftRotation(grandparentNode);
+                                else
+                                    grandparentNode.parent.right = smallLeftRotation(grandparentNode);
+                            }
+                        }                      
                     }
                 }
             }
