@@ -193,6 +193,7 @@ namespace Task7RBTree
                 }
             }
         }
+        //TODO: доделать!!!
         public override void remove(T val)
         {
             
