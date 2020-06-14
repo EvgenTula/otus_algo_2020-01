@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task7RBTree", "Task7RBTree\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task9Hashtable", "Task9Hashtable\Task9Hashtable.csproj", "{5380BA89-71E4-4FA7-AAAA-46305C2AA637}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task8SegmentTree", "Task8BTree\Task8SegmentTree.csproj", "{5F10A996-E72D-4D0C-A1B7-9BEC1AC029F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task8SegmentTree", "Task8SegmentTree\Task8SegmentTree.csproj", "{5F10A996-E72D-4D0C-A1B7-9BEC1AC029F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
