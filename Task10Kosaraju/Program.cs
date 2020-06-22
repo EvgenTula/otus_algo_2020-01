@@ -16,8 +16,11 @@ namespace Task10Kosaraju
             matrix.add(6, new int[] { 5 });
             matrix.add(7, new int[] { 3, 6 });
 
-            Matrix reverseMatrix = matrix.Reverse();
-
+            var components = matrix.Component();
+            for(int i = 0; i < components.Length; i++)
+            {
+                Console.WriteLine(i + " component " + components[i]);
+            }
             Console.ReadKey();
         }
     }
