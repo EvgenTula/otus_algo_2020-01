@@ -2,7 +2,7 @@
 
 namespace task3DynamicArray
 {
-    class VectorArray<T> : IArray<T>
+    public class VectorArray<T> : IArray<T>
     {
         private T[] array;
         private int capacity;

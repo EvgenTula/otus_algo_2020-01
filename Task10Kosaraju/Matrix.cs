@@ -126,30 +126,5 @@
                 }
             }
         }
-
-        /*
-        int numOrder = 0;
-            
-            return prepareResult();
-
-void DFS(int node)
-{
-    visited[node] = true;
-    int i = 0;
-    for (int k = 0; k < arr.GetLength(1); k++)
-    {
-        if (arr[node, k] == null)
-            break;
-        int val = (int)arr[node, k];
-        if (!visited[val])
-        {
-            DFS(val);
-            orderResult[val] = ++numOrder;
-        }
-        i++;
-    }
-}
-
-        */
     }
 }
