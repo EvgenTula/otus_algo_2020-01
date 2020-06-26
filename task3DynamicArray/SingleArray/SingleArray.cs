@@ -71,6 +71,11 @@ namespace task3DynamicArray
         {
             return GetEnumerator();
         }
+
+        public void Sort()
+        {
+            Array.Sort(array);
+        }
     }
 
     public class SingleArrayEnum<T> : IEnumerator<T>
