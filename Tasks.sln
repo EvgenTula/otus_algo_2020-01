@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task11TopologicalSort", "Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task12MST", "Task12Kruskal\Task12MST.csproj", "{36FE696D-0D23-45BA-A37C-A3314E7F7DA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task13SPF", "Task13SPF\Task13SPF.csproj", "{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{36FE696D-0D23-45BA-A37C-A3314E7F7DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36FE696D-0D23-45BA-A37C-A3314E7F7DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36FE696D-0D23-45BA-A37C-A3314E7F7DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

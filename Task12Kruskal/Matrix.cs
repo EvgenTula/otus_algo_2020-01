@@ -25,6 +25,10 @@ namespace Task12MST
             edges.Add(new Edge(v1, v2, len));
         }
 
+        /// <summary>
+        /// Алгоритм Крускала
+        /// </summary>
+        /// <returns></returns>
         public Edge[] GetMST()
         {
             Edge[] result = new Edge[edges.Size()];

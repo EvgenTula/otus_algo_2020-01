@@ -21,6 +21,10 @@ namespace Task11TopologicalSort
             }
         }
 
+        /// <summary>
+        /// Алгоритм Демукрона
+        /// </summary>
+        /// <returns></returns>
         public int?[,] TopologicalSort()
         {           
             int[,] table = GetTableLinks();
