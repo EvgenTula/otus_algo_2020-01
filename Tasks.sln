@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task12MST", "Task12Kruskal\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task13SPF", "Task13SPF\Task13SPF.csproj", "{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task14Search", "Task14Search\Task14Search.csproj", "{C903193B-848E-46BE-A6B5-1E0390DBA331}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F10ABE0D-0A40-441C-8482-C0D2BCBD3216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C903193B-848E-46BE-A6B5-1E0390DBA331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C903193B-848E-46BE-A6B5-1E0390DBA331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C903193B-848E-46BE-A6B5-1E0390DBA331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C903193B-848E-46BE-A6B5-1E0390DBA331}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
