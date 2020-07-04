@@ -51,16 +51,16 @@ namespace Task14Search
             suffix[pattern.Length] = 1;
             for(int j = pattern.Length - 1; j >= 0; j--)
             {
-                //for(int at = j; at < pattern.Length; at++)
+                for(int at = j; at < pattern.Length; at++)
                 {
-                    string a = pattern.Substring(j);
-                    for(int i = j - 1; i >= 0; i--)
+                    string a = pattern.Substring(at);
+                    for(int i = at - 1; i >= 0; i--)
                     {
                         string b = pattern.Substring(i, a.Length);
                         if (a == b)
                         {
-                            suffix[j] = j - i;
-                            //at = pattern.Length;
+                            suffix[j] = at - 1;
+                            at = pattern.Length;
                             break;
                         }
                     }
@@ -68,6 +68,7 @@ namespace Task14Search
             }
             return suffix;
         }
+
         #endregion;
 
 
