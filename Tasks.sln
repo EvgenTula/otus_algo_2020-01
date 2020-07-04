@@ -5,25 +5,25 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTester", "tester\SimpleTester.csproj", "{258E03A0-3B0E-45B8-8D12-D5593FCD7644}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1NOD", "task1NOD\task1NOD.csproj", "{1B4B9990-412C-468D-9E35-252D244616C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1NOD", "task1NOD\Task1NOD.csproj", "{1B4B9990-412C-468D-9E35-252D244616C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1POW", "task1POW\task1POW.csproj", "{2787D776-56EA-4C4D-AA9F-8EE8E71425CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1POW", "task1POW\Task1POW.csproj", "{2787D776-56EA-4C4D-AA9F-8EE8E71425CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1Prime", "task1CountSimpleNum\task1Prime.csproj", "{0DFD6C95-66E7-4816-8445-4D1CE87A7CEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1Prime", "task1CountSimpleNum\Task1Prime.csproj", "{0DFD6C95-66E7-4816-8445-4D1CE87A7CEA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task1Fibonacci", "task1Fibonacci\task1Fibonacci.csproj", "{9795CF71-AF58-4130-8A09-61CEC39E6A81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1Fibonacci", "task1Fibonacci\Task1Fibonacci.csproj", "{9795CF71-AF58-4130-8A09-61CEC39E6A81}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task2King", "task2King\task2King.csproj", "{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2King", "task2King\Task2King.csproj", "{A4F5F6BE-A4A3-4884-88D4-CB1EA23DC773}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task2Horse", "task2Horse\task2Horse.csproj", "{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2Horse", "task2Horse\Task2Horse.csproj", "{45C117EC-CB3A-4C5A-9506-1D75DA74BE5A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task2FEN", "task2FEN\task2FEN.csproj", "{C3717192-693D-40CC-97DC-271E28A6C32A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2FEN", "task2FEN\Task2FEN.csproj", "{C3717192-693D-40CC-97DC-271E28A6C32A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task2Truckers", "task2Truckers\task2Truckers.csproj", "{749A6821-49A1-49FA-A050-4CC4331626A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2Truckers", "task2Truckers\Task2Truckers.csproj", "{749A6821-49A1-49FA-A050-4CC4331626A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task3DynamicArray", "task3DynamicArray\task3DynamicArray.csproj", "{F23F88EC-6500-4F5A-98FA-AF254EB2ED72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3DynamicArray", "task3DynamicArray\Task3DynamicArray.csproj", "{F23F88EC-6500-4F5A-98FA-AF254EB2ED72}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task3PriorityQueue", "task3PriorityQueue\task3PriorityQueue.csproj", "{3495E4D7-3840-499B-8AB8-95E18EF60322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3PriorityQueue", "task3PriorityQueue\Task3PriorityQueue.csproj", "{3495E4D7-3840-499B-8AB8-95E18EF60322}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4Sort", "Task4Sort\Task4Sort.csproj", "{7C6658B4-8839-42C7-8292-6351C110B7AB}"
 EndProject
@@ -47,7 +47,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task13SPF", "Task13SPF\Task
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task14Search", "Task14Search\Task14Search.csproj", "{C903193B-848E-46BE-A6B5-1E0390DBA331}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task15RLE", "Task15RLE\Task15RLE.csproj", "{5EB769AD-B708-4965-BEC8-95CDAC488CF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task15RLE", "Task15RLE\Task15RLE.csproj", "{5EB769AD-B708-4965-BEC8-95CDAC488CF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task16DynamicProgramming", "Task16DynamicProgramming\Task16DynamicProgramming.csproj", "{D371FE41-4DFA-497B-BF7B-B62E5A9434BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{5EB769AD-B708-4965-BEC8-95CDAC488CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB769AD-B708-4965-BEC8-95CDAC488CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB769AD-B708-4965-BEC8-95CDAC488CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D371FE41-4DFA-497B-BF7B-B62E5A9434BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D371FE41-4DFA-497B-BF7B-B62E5A9434BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D371FE41-4DFA-497B-BF7B-B62E5A9434BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D371FE41-4DFA-497B-BF7B-B62E5A9434BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

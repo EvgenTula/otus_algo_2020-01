@@ -5,8 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\task3DynamicArray\Task3DynamicArray.csproj" />
-  </ItemGroup>
-
 </Project>

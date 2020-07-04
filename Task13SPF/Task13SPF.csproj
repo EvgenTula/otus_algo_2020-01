@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\task3DynamicArray\task3DynamicArray.csproj" />
+    <ProjectReference Include="..\task3DynamicArray\Task3DynamicArray.csproj" />
   </ItemGroup>
 
 </Project>
