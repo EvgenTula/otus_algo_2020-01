@@ -18,6 +18,12 @@ namespace Task16DynamicProgramming
             //Острова
             p = new List<string>() { "3", "1 0 1", "0 1 0", "1 0 1"};
             Console.WriteLine(task4.Solution(p));
+            //Маленький сарай
+            p = new List<string>() { "4 3", "0 0 0 0", "0 1 0 0", "1 0 0 0" };
+            Console.WriteLine(taskRectangle.Solution(p));
+            //Большой сарай
+            p = new List<string>() { "4 3", "2", "1 1", "0 2" };
+            Console.WriteLine(taskRectangleDynamic.Solution(p));
         }
     }
 }
