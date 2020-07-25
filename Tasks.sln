@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task15RLE", "Task15RLE\Task
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task16DynamicProgramming", "Task16DynamicProgramming\Task16DynamicProgramming.csproj", "{D371FE41-4DFA-497B-BF7B-B62E5A9434BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task17Probabilistic", "Task17Probabilistic\Task17Probabilistic.csproj", "{E4B60F53-EB80-4354-B710-569F1FDC2E6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task17Probabilistic", "Task17Probabilistic\Task17Probabilistic.csproj", "{E4B60F53-EB80-4354-B710-569F1FDC2E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task18Trie", "Task18Trie\Task18Trie.csproj", "{CEE1115D-5B67-47D2-8C02-C8F15B4AB30C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{E4B60F53-EB80-4354-B710-569F1FDC2E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4B60F53-EB80-4354-B710-569F1FDC2E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4B60F53-EB80-4354-B710-569F1FDC2E6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE1115D-5B67-47D2-8C02-C8F15B4AB30C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE1115D-5B67-47D2-8C02-C8F15B4AB30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE1115D-5B67-47D2-8C02-C8F15B4AB30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE1115D-5B67-47D2-8C02-C8F15B4AB30C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
