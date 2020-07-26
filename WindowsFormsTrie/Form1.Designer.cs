@@ -36,8 +36,9 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 40);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(776, 240);
-            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // textBox1
@@ -45,8 +46,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(776, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.TabIndex = 0;
             this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // Form1

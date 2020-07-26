@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace WindowsFormsTrie
 {
@@ -10,10 +8,13 @@ namespace WindowsFormsTrie
     {
         public bool isWord;
         public char symbol;
-        private Dictionary<char, Node> childs;
-        public string prefix;
+        public Dictionary<char, Node> childs
+        {
+            private set;
+            get;
+        }
 
-        private IEnumerator enumerator;
+        public string prefix;
 
         public Node(char val)
         {
@@ -28,6 +29,11 @@ namespace WindowsFormsTrie
             this.prefix = prefix + val;
         }
 
+        public Node GetFirst()
+        {
+            return this.childs.Values.FirstOrDefault();
+        }
+
         public Node GetChild(char val)
         {
             Node result;
@@ -35,22 +41,36 @@ namespace WindowsFormsTrie
             {
                 result = new Node(val, prefix);
                 childs.Add(val, result);
-                enumerator = childs.GetEnumerator();
             }
             return result;
         }
         
-        public Node GetNextChild()
-        {          
-            if (enumerator != null && enumerator.MoveNext())
-                return ((KeyValuePair<char, Node>)enumerator.Current).Value;
-            return null;
+        public List<Node> GetNodes()
+        {
+            return fill(this);
         }
 
-        public void ResetEnumerator()
+        private List<Node> fill(Node node)
         {
-            if (enumerator != null)
-                enumerator.Reset();
-        }
+            List<Node> result = new List<Node>();
+            Queue<Node> q = new Queue<Node>();
+
+            foreach(var item in node.childs)
+            {
+                if (item.Value.childs.Count > 0)
+                    q.Enqueue(item.Value);
+                if (item.Value.isWord)
+                    result.Add(item.Value);
+            }
+
+            while (q.Count > 0)
+            {
+
+                var tmp_node = q.Dequeue();
+                result.AddRange(fill(tmp_node));
+            }
+
+            return result;
+        }     
     }
 }

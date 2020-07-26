@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace WindowsFormsTrie
@@ -51,18 +52,13 @@ namespace WindowsFormsTrie
                 StringBuilder words = new StringBuilder();
                 if (node.isWord)
                     words.Append(node.prefix + "\n");
-
-                Node childNode = node.GetNextChild();
                 
-                while (childNode != null)
+                List<Node> nodes = node.GetNodes();
+                foreach (var childNode in nodes)
                 {
-                    Node tmpNode = childNode;
-                    if (tmpNode.isWord)
-                        words.Append(tmpNode.prefix+"\n");
-                    childNode = tmpNode.GetNextChild();
-                    tmpNode.ResetEnumerator();
+                    //if (childNode.isWord)
+                    words.Append(childNode.prefix+"\n");
                 }
-                node.ResetEnumerator();
                 return words.ToString();
             }
             else
