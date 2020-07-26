@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.IO;
 
 namespace Task18Trie
@@ -15,10 +16,23 @@ namespace Task18Trie
                 trie.Add(data[i]);
             }
 
-            string str;
-            while ((str = Console.ReadLine()) != "exit")
+            string inputStr = String.Empty;
+            while (inputStr != "exit")
             {
-                Console.WriteLine(trie.Search(str));
+                ConsoleKeyInfo keyInfo = Console.ReadKey();
+                
+                if (Char.IsLetter(keyInfo.KeyChar))
+                    inputStr += keyInfo.KeyChar.ToString();
+                if (keyInfo.Key == ConsoleKey.Backspace)
+                {
+                    //inputStr = inputStr.Substring(0, inputStr.Length - 1);
+
+
+                    
+                    Console.Write("");
+                }
+                if (keyInfo.Key == ConsoleKey.Tab)
+                    Console.Write(trie.Search(inputStr));               
             }
             Console.ReadKey();
         }

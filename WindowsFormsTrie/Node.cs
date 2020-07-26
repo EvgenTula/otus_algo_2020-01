@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Task18Trie
+namespace WindowsFormsTrie
 {
     public class Node
     {
@@ -39,13 +39,18 @@ namespace Task18Trie
             }
             return result;
         }
-
         
         public Node GetNextChild()
-        {
-            if (enumerator.MoveNext())
+        {          
+            if (enumerator != null && enumerator.MoveNext())
                 return ((KeyValuePair<char, Node>)enumerator.Current).Value;
             return null;
+        }
+
+        public void ResetEnumerator()
+        {
+            if (enumerator != null)
+                enumerator.Reset();
         }
     }
 }

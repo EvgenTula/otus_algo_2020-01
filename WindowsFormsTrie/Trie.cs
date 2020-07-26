@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 
-namespace Task18Trie
+namespace WindowsFormsTrie
 {
     public class Trie
     {
@@ -45,21 +45,25 @@ namespace Task18Trie
         }
 
         private string Search(Node node, string str)
-        {                       
+        {                                   
             if (string.IsNullOrEmpty(str))
             {
+                StringBuilder words = new StringBuilder();
                 if (node.isWord)
-                    return node.prefix;
+                    words.Append(node.prefix + "\n");
 
-                Node result = node.GetNextChild();
-                while (result != null && !result.isWord)
+                Node childNode = node.GetNextChild();
+                
+                while (childNode != null)
                 {
-                    result = result.GetNextChild();
+                    Node tmpNode = childNode;
+                    if (tmpNode.isWord)
+                        words.Append(tmpNode.prefix+"\n");
+                    childNode = tmpNode.GetNextChild();
+                    tmpNode.ResetEnumerator();
                 }
-                if (result == null)
-                    return "not fount";
-                else
-                    return node.prefix;
+                node.ResetEnumerator();
+                return words.ToString();
             }
             else
             {
