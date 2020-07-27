@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsTrie
 {
-    partial class Form1
+    partial class frmSuggest
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,36 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxSelection = new System.Windows.Forms.RichTextBox();
+            this.txtStr = new System.Windows.Forms.TextBox();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.txtCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // txtBoxSelection
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 40);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(776, 240);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.txtBoxSelection.Location = new System.Drawing.Point(12, 68);
+            this.txtBoxSelection.Name = "txtBoxSelection";
+            this.txtBoxSelection.ReadOnly = true;
+            this.txtBoxSelection.Size = new System.Drawing.Size(776, 240);
+            this.txtBoxSelection.TabIndex = 1;
+            this.txtBoxSelection.Text = "";
             // 
-            // textBox1
+            // txtStr
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(776, 22);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            this.txtStr.Location = new System.Drawing.Point(12, 40);
+            this.txtStr.Name = "txtStr";
+            this.txtStr.Size = new System.Drawing.Size(776, 22);
+            this.txtStr.TabIndex = 0;
+            this.txtStr.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
-            // Form1
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(118, 11);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 2;
+            this.btnLoad.Text = "load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(12, 12);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.ReadOnly = true;
+            this.txtCount.Size = new System.Drawing.Size(100, 22);
+            this.txtCount.TabIndex = 3;
+            this.txtCount.Text = "0";
+            // 
+            // frmSuggest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 286);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.richTextBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(798, 318);
+            this.Controls.Add(this.txtCount);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.txtStr);
+            this.Controls.Add(this.txtBoxSelection);
+            this.Name = "frmSuggest";
+            this.Text = "suggest";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -65,8 +88,10 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox txtBoxSelection;
+        private System.Windows.Forms.TextBox txtStr;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.TextBox txtCount;
     }
 }
 
