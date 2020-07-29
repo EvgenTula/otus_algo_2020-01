@@ -20,17 +20,27 @@ namespace WindowsFormsTrie
             count = 1;
         }
 
+        public List<string> addWorlds = new List<string>();
+
         public void Add(string str)
         {
             Add(root, str);
             count++;
+            addWorlds.Add(str);
         }
 
+       
         private void Add(Node node, string str)
         {
             if (String.IsNullOrEmpty(str))
             {
                 node.isWord = true;
+                Node tmp = node;
+                while (tmp.parent != null)
+                {
+                    tmp = tmp.parent;
+                    tmp.childsWithWords.Add(node);
+                }
             }    
             else
             {
@@ -40,29 +50,27 @@ namespace WindowsFormsTrie
             }
         }
 
-        public string Search(string str)
+        public StringBuilder Search(string str)
         {
             return Search(root, str);
         }
 
-        private string Search(Node node, string str)
-        {                                   
+        private StringBuilder Search(Node node, string str)
+        {
             if (string.IsNullOrEmpty(str))
             {
                 StringBuilder words = new StringBuilder();
                 if (node.isWord)
                     words.Append(node.prefix + "\n");
-                
-                List<Node> nodes = node.GetNodes();
-                foreach (var childNode in nodes)
+
+                foreach (var item in node.childsWithWords)
                 {
-                    //if (childNode.isWord)
-                    words.Append(childNode.prefix+"\n");
-                }
-                return words.ToString();
+                    words.Append(item.prefix + "\n");
+                }     
+                return words;
             }
             else
-            {
+            {                
                 var current = node.GetChild(str[0]);
                 return Search(current, str.Substring(1));
             }   

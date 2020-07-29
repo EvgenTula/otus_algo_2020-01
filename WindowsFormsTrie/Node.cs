@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace WindowsFormsTrie
@@ -8,6 +7,9 @@ namespace WindowsFormsTrie
     {
         public bool isWord;
         public char symbol;
+        public Node parent;
+
+        public List<Node> childsWithWords = new List<Node>();
         public Dictionary<char, Node> childs
         {
             private set;
@@ -40,36 +42,10 @@ namespace WindowsFormsTrie
             if (!childs.TryGetValue(val, out result))
             {
                 result = new Node(val, prefix);
+                result.parent = this;
                 childs.Add(val, result);
+                childsWithWords.Add(result);
             }
-            return result;
-        }
-        
-        public List<Node> GetNodes()
-        {
-            return fill(this);
-        }
-
-        private List<Node> fill(Node node)
-        {
-            List<Node> result = new List<Node>();
-            Queue<Node> q = new Queue<Node>();
-
-            foreach(var item in node.childs)
-            {
-                if (item.Value.childs.Count > 0)
-                    q.Enqueue(item.Value);
-                if (item.Value.isWord)
-                    result.Add(item.Value);
-            }
-
-            while (q.Count > 0)
-            {
-
-                var tmp_node = q.Dequeue();
-                result.AddRange(fill(tmp_node));
-            }
-
             return result;
         }     
     }

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsTrie
@@ -12,20 +15,29 @@ namespace WindowsFormsTrie
             InitializeComponent();
         }
 
+
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
+        {           
             if (trie == null)
-                return;
-            txtBoxSelection.Clear();
+                return;            
             if (!String.IsNullOrEmpty(txtStr.Text))
             {
-                txtBoxSelection.Text = trie.Search(txtStr.Text);
+                ShowResults();                
             }
+        }
+
+        async void ShowResults()
+        {
+            await Task.Run(() =>
+            {
+                string result = trie.Search(txtStr.Text).ToString(); 
+                txtBoxSelection.Invoke(new Action(() => txtBoxSelection.Text = result));
+            });
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            trie = new Trie();
+            trie = new Trie();            
 
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Filter = "Текстовые файлы (*.txt)|*.txt";
