@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,10 +17,15 @@ namespace WindowsFormsTrie
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {           
             if (trie == null)
-                return;            
+                return;
+
             if (!String.IsNullOrEmpty(txtStr.Text))
             {
-                ShowResults();                
+                ShowResults();
+            }
+            else
+            {
+                txtBoxSelection.Clear();
             }
         }
 

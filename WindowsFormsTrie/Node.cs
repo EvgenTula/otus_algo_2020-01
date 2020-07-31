@@ -9,7 +9,7 @@ namespace WindowsFormsTrie
         public char symbol;
         public Node parent;
 
-        public List<Node> childsWithWords = new List<Node>();
+        public HashSet<Node> childsWithWords = new HashSet<Node>();
         public Dictionary<char, Node> childs
         {
             private set;
@@ -44,9 +44,27 @@ namespace WindowsFormsTrie
                 result = new Node(val, prefix);
                 result.parent = this;
                 childs.Add(val, result);
-                childsWithWords.Add(result);
             }
             return result;
-        }     
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Node node &&
+                   isWord == node.isWord &&
+                   symbol == node.symbol &&
+                   EqualityComparer<Node>.Default.Equals(parent, node.parent) &&
+                   prefix == node.prefix;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 268269044;
+            hashCode = hashCode * -1521134295 + isWord.GetHashCode();
+            hashCode = hashCode * -1521134295 + symbol.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Node>.Default.GetHashCode(parent);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(prefix);
+            return hashCode;
+        }
     }
 }

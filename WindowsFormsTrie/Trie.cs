@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace WindowsFormsTrie
@@ -20,13 +19,10 @@ namespace WindowsFormsTrie
             count = 1;
         }
 
-        public List<string> addWorlds = new List<string>();
-
         public void Add(string str)
         {
             Add(root, str);
             count++;
-            addWorlds.Add(str);
         }
 
        
@@ -65,7 +61,8 @@ namespace WindowsFormsTrie
 
                 foreach (var item in node.childsWithWords)
                 {
-                    words.Append(item.prefix + "\n");
+                    if (item.isWord)
+                        words.Append(item.prefix + "\n");
                 }     
                 return words;
             }
